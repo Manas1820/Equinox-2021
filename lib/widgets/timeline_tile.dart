@@ -1,4 +1,3 @@
-import 'package:equinox_21/models/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import '../constants.dart';
