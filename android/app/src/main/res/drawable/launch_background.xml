@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gradient_background" />
+    <item android:bottom="50dp">    
+        <bitmap 
+            android:gravity="center"
+            android:src="@drawable/equinox" />    
+    </item>
+    <item>    
+        <bitmap 
+            android:gravity="center"
+            android:src="@drawable/line" />    
+    </item>
+    <item android:top="50dp">    
+        <bitmap 
+            android:gravity="center"
+            android:src="@drawable/robovitics" />    
+    </item>
+</layer-list>
