@@ -1,16 +1,49 @@
-# equinox_21
+<p align="center"><img align="center" src="https://github.com/Manas1820/Equinox-2021/blob/main/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" height="128" /></p>
+<h1 align="center">Welcome To Equinox 👋</h1>
+<p align="center">
+  <img alt="Documentation" src="https://img.shields.io/badge/-Flutter-blue?&logo=flutter" />
+  <img alt="Documentation" src="https://img.shields.io/badge/-Firebase-blue?&logo=firebase" />
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Manas1820/Equinox-2021">
+</p>
 
-A new Flutter application.
+> A Flutter app to make hacker's life simpler in __Equinox-2021__
 
-## Getting Started
+### 🏠 [Homepage](https://www.equinoxhack.in/)
 
-This project is a starting point for a Flutter application.
+### ✨ [Prototype](https://www.figma.com/file/QNIFwJ902eYJUMx5fgtCUL/Equinox-app?node-id=0%3A1)
 
-A few resources to get you started if this is your first Flutter project:
+## 📥 Install
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```sh
+flutter pub get
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 👷‍♂️ Usage
+
+```sh
+flutter run
+```
+
+## ✨ Format code
+
+```sh
+flutter format .
+```
+
+## 🧪 Test
+
+```sh
+flutter analyze .
+flutter test
+```
+  
+</details>
+
+## Author [@contributors](https://github.com/Manas1820/Equinox-2021/graphs/contributors)
+  
+- Github [@Equnox-2021](https://github.com/Manas1820/Equinox-2021)
+
+
+## Show your support 
+
+Give a ⭐️ if this project helped/inspired you!
