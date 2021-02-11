@@ -55,70 +55,85 @@ class _HomeScreenState extends State<HomeScreen> {
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        selectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
-        unselectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: Image.asset(
-              'images/equinox_white.png',
-              height: screenHeight(context) * 0.05,
-              width: screenWidth(context) * 0.2,
-            ),
+            backgroundColor: isDarkMode ? darkBackground : lightBackground,
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/equinox_white.png',
+                    height: screenHeight(context) * 0.05,
+                  )
+                : Image.asset(
+                    'images/equinox_black.png',
+                    height: screenHeight(context) * 0.05,
+                  ),
             title: Text(
               'Equinox',
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
           BottomNavigationBarItem(
             backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: Icon(
-              Icons.people,
-              // color: isDarkMode == true ? darkNavButton : lightNavButton,
-            ),
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/team_dark.png',
+                    height: screenHeight(context) * 0.05,
+                  )
+                : Image.asset(
+                    'images/team_light.png',
+                    height: screenHeight(context) * 0.04,
+                  ),
             title: Text(
               'Team',
-              style: TextStyle(
-                  // color: isDarkMode == true ? darkNavButton : lightNavButton
-                  ),
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
           BottomNavigationBarItem(
             backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: Icon(
-              Icons.access_time,
-              // color: isDarkMode == true ? darkNavButton : lightNavButton,
-            ),
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/timeline_dark.png',
+                    height: screenHeight(context) * 0.04,
+                  )
+                : Image.asset(
+                    'images/timeline_light.png',
+                    height: screenHeight(context) * 0.04,
+                  ),
             title: Text(
               'Timeline',
-              style: TextStyle(
-                  // color: isDarkMode == true ? darkNavButton : lightNavButton
-                  ),
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
           BottomNavigationBarItem(
             backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: Icon(
-              Icons.library_books,
-              // color: isDarkMode == true ? darkNavButton : lightNavButton,
-            ),
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/aboutUs_dark.png',
+                    height: screenHeight(context) * 0.04,
+                  )
+                : Image.asset(
+                    'images/aboutUs_light.png',
+                    height: screenHeight(context) * 0.04,
+                  ),
             title: Text(
-              'Books',
-              style: TextStyle(
-                  // color: isDarkMode == true ? darkNavButton : lightNavButton
-                  ),
+              'About Us',
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
           BottomNavigationBarItem(
             backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: Icon(
-              Icons.headset,
-              // color: isDarkMode == true ? darkNavButton : lightNavButton,
-            ),
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/faq_dark.png',
+                    height: screenHeight(context) * 0.04,
+                  )
+                : Image.asset(
+                    'images/faq_light.png',
+                    height: screenHeight(context) * 0.04,
+                  ),
             title: Text(
               'FAQ',
-              style: TextStyle(
-                  // color: isDarkMode == true ? darkNavButton : lightNavButton
-                  ),
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
         ],
