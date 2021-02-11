@@ -1,7 +1,9 @@
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:equinox_21/constants.dart';
 import 'package:equinox_21/screens/faq.dart';
 import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
+import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/screens/about_us.dart';
@@ -52,14 +54,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: ConnectivityWidgetWrapper(
+        offlineWidget: ShowOffline(isDarkMode: isDarkMode),
+        child: pages[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        selectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
-        unselectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
+        selectedItemColor:
+            isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
+        unselectedItemColor:
+            isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: Image.asset(
               'images/equinox_white.png',
               height: screenHeight(context) * 0.05,
@@ -70,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.people,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -83,7 +92,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.access_time,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -96,7 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.library_books,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -109,7 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.headset,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
