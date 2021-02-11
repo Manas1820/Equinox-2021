@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ConnectivityAppWrapper(
         app: MaterialApp(
+          debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     ));
   }
