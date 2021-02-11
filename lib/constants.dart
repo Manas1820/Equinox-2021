@@ -3,6 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 const textColorNight = Colors.white;
 const textColorDay = Colors.black;
+
+const bottomNavIconColorLight = Color(0xff0E1C36);
+const bottomNavIconColorDark = Colors.white;
+
 const darkBackground = Color(0xFF0E1C36);
 const lightBackground = Color(0xFFCCF2FA);
 const dropDownColor = Color(0xFF6A7282);
@@ -49,6 +53,11 @@ TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
         color: isDarkMode ? textColorNight : textColorDay,
         fontSize: screenWidth(context) * 0.043,
         fontWeight: isClicked ? FontWeight.bold : null);
+
+TextStyle bottomNavBarIconTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? bottomNavIconColorDark : bottomNavIconColorLight,
+    );
 
 EdgeInsets expantionTilePaddingFaq(BuildContext context) => EdgeInsets.only(
     left: screenWidth(context) * 0.03,
