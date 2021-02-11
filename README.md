@@ -40,7 +40,7 @@ flutter test
 </details>
 
 ## Author 
--[Contributors](https://github.com/Manas1820/Equinox-2021/graphs/contributors)
+- [Contributors](https://github.com/Manas1820/Equinox-2021/graphs/contributors)
   
 - Github [Equinox-2021](https://github.com/Manas1820/Equinox-2021)
 
