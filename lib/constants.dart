@@ -39,6 +39,11 @@ EdgeInsets tilePadding(BuildContext context) => EdgeInsets.only(
     top: screenWidth(context) * 0.07,
     bottom: screenWidth(context) * 0.07);
 
+EdgeInsets headingPadding(BuildContext context) => EdgeInsets.only(
+    left: screenWidth(context) * 0.07,
+    top: screenWidth(context) * 0.07,
+    bottom: screenWidth(context) * 0.07);
+
 TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
     GoogleFonts.raleway(
         color: isDarkMode ? textColorNight : textColorDay,
@@ -47,23 +52,37 @@ TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
 
 EdgeInsets expantionTilePaddingFaq(BuildContext context) => EdgeInsets.only(
     left: screenWidth(context) * 0.03,
-    top: screenWidth(context) * 0.03,
-    bottom: screenWidth(context) * 0.03);
+    top: screenWidth(context) * 0.02,
+    bottom: screenWidth(context) * 0.02);
 
 TextStyle headingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
-      fontSize: screenWidth(context) * 0.053,
+      fontSize: screenWidth(context) * 0.1,
     );
 
 TextStyle faqTileHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
-      fontSize: screenWidth(context) * 0.043,
+      fontSize: screenWidth(context) * 0.048,
     );
 
 TextStyle faqTileSubheadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.043,
+    );
+
+TextStyle showOfflineHeadingText(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontWeight: FontWeight.bold,
+      fontSize: screenWidth(context) * 0.09,
+    );
+
+TextStyle showOfflineSubheadingText(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontWeight: FontWeight.bold,
+      fontSize: screenWidth(context) * 0.06,
     );
