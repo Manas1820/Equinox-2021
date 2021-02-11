@@ -39,9 +39,9 @@ flutter test
   
 </details>
 
-## Author [@contributors](https://github.com/Manas1820/Equinox-2021/graphs/contributors)
+## Author [Contributors](https://github.com/Manas1820/Equinox-2021/graphs/contributors)
   
-- Github [@Equnox-2021](https://github.com/Manas1820/Equinox-2021)
+- Github [Equinox-2021](https://github.com/Manas1820/Equinox-2021)
 
 
 ## Show your support 
