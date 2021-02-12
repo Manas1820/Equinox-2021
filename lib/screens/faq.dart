@@ -10,6 +10,12 @@ class _FaqState extends State<Faq> {
   bool isDarkMode = false;
   DateTime now;
 
+  @override
+  void initState() {
+    manageTheme();
+    super.initState();
+  }
+
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
     if (now.hour > 18 && now.hour < 6) {
@@ -176,8 +182,7 @@ class _FaqState extends State<Faq> {
             ],
           ),
           decoration: BoxDecoration(
-            gradient:
-                isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
           )),
     );
   }
