@@ -1,7 +1,9 @@
+import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:equinox_21/constants.dart';
 import 'package:equinox_21/screens/faq.dart';
 import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
+import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/screens/about_us.dart';
@@ -52,7 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: ConnectivityWidgetWrapper(
+        offlineWidget: ShowOffline(isDarkMode: isDarkMode),
+        child: pages[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
@@ -73,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/team_dark.png',
@@ -89,7 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
@@ -105,7 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
@@ -121,7 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',
