@@ -61,6 +61,7 @@ TextStyle bottomNavBarIconTextStyle(BuildContext context, bool isDarkMode) =>
 
 EdgeInsets expantionTilePaddingFaq(BuildContext context) => EdgeInsets.only(
     left: screenWidth(context) * 0.03,
+    right: screenWidth(context) * 0.03,
     top: screenWidth(context) * 0.02,
     bottom: screenWidth(context) * 0.02);
 
