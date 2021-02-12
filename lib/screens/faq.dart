@@ -18,7 +18,7 @@ class _FaqState extends State<Faq> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.hour > 18 && now.hour < 6) {
+    if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
       });
@@ -182,7 +182,8 @@ class _FaqState extends State<Faq> {
             ],
           ),
           decoration: BoxDecoration(
-            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+            gradient:
+                isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
           )),
     );
   }

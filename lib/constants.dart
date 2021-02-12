@@ -61,6 +61,7 @@ TextStyle bottomNavBarIconTextStyle(BuildContext context, bool isDarkMode) =>
 
 EdgeInsets expantionTilePaddingFaq(BuildContext context) => EdgeInsets.only(
     left: screenWidth(context) * 0.03,
+    right: screenWidth(context) * 0.03,
     top: screenWidth(context) * 0.02,
     bottom: screenWidth(context) * 0.02);
 
@@ -72,13 +73,11 @@ TextStyle headingTextStyle(BuildContext context, bool isDarkMode) =>
 
 TextStyle faqTileHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
-      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.048,
     );
 
 TextStyle faqTileSubheadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
-      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.043,
     );
 
