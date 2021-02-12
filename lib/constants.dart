@@ -72,13 +72,11 @@ TextStyle headingTextStyle(BuildContext context, bool isDarkMode) =>
 
 TextStyle faqTileHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
-      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.048,
     );
 
 TextStyle faqTileSubheadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
-      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.043,
     );
 
