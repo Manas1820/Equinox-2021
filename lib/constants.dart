@@ -24,9 +24,12 @@ const lightBackgroundGradient = LinearGradient(
 const darkBackgroundGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
-  stops: [1],
+  stops: [0.1, 0.5, 0.7, 0.9],
   colors: [
+    Color(0xff010205),
+    Color(0xff070E1B),
     Color(0xFF0E1C36),
+    Color(0xff0C182F),
   ],
 );
 
