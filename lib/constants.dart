@@ -7,6 +7,9 @@ const textColorDay = Colors.black;
 const bottomNavIconColorLight = Color(0xff0E1C36);
 const bottomNavIconColorDark = Colors.white;
 
+const tileBackgroundLight = Colors.white;
+const tileBackgroundDark = Colors.black;
+
 const darkBackground = Color(0xFF0E1C36);
 const lightBackground = Color(0xFFCCF2FA);
 const dropDownColor = Color(0xFF6A7282);
@@ -74,13 +77,21 @@ TextStyle headingTextStyle(BuildContext context, bool isDarkMode) =>
       fontSize: screenWidth(context) * 0.1,
     );
 
+TextStyle headingSubTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.048,
+    );
+
 TextStyle faqTileHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.048,
     );
 
 TextStyle faqTileSubheadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.043,
     );
 
