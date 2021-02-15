@@ -56,6 +56,13 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 left: screenWidth(context) * 0.02),
             child: Stack(
               children: [
+                Positioned(
+                  top: screenHeight(context) * 0.5,
+                  left: screenWidth(context) * 0.73,
+                  child: SizedBox(
+                      height: screenHeight(context) * 0.25,
+                      child: isDarkMode ? moonImage : sunImage),
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -130,13 +137,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
                           }),
                     ),
                   ],
-                ),
-                Positioned(
-                  top: screenHeight(context) * 0.5,
-                  left: screenWidth(context) * 0.73,
-                  child: SizedBox(
-                      height: screenHeight(context) * 0.25,
-                      child: isDarkMode ? moonImage : sunImage),
                 ),
               ],
             ),
