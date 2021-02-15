@@ -76,7 +76,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     SizedBox(height: screenHeight(context) * 0.01),
                     Expanded(
                       child: StreamBuilder<QuerySnapshot>(
-                          stream: _firestore.collection('events').snapshots(),
+                          stream: _firestore
+                              .collection('events')
+                              .orderBy('thisEvent')
+                              .snapshots(),
                           builder: (context, snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -97,8 +100,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               final nextEvent =
                                   DateTime.parse(tile.data()['nextEvent']);
                               IndicatorStyle indicator = normalIndicator(context);
-                              Color colorUp = Colors.yellow[400];
-                              Color colorDown = Colors.green[400];
+                              Color colorUp = upLineColor;
+                              Color colorDown = downLineColor;
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
                                 indicator = earthIndicator(context);
