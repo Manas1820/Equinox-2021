@@ -28,7 +28,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
   }
 
   void manageTheme() {
-    DateTime now = DateTime.now(); // current time
+    DateTime now = DateTime.now();
+    print(now.hour); // current time
     if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
@@ -52,7 +53,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
           child: Padding(
             padding: EdgeInsets.only(
                 top: screenHeight(context) * 0.04,
-                bottom: screenHeight(context) * 0.05,
                 left: screenWidth(context) * 0.02),
             child: Stack(
               children: [

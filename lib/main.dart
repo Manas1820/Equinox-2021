@@ -17,8 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const MethodChannel _channel =
-      MethodChannel('testing.com/channel_test');
+  static const MethodChannel _channel = MethodChannel('testing.com/channel_test');
   Map<String, String> channelMap = {
     "id": "id",
     "name": "Show Notifications",
@@ -43,9 +42,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ConnectivityAppWrapper(
-        app: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    ));
+      app: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen(),
+      ),
+    );
   }
 }
