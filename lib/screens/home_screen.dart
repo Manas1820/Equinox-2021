@@ -28,12 +28,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print('callllllllllllllllleddddddddddd');
     manageTheme();
+    print('callllllllllllllllleddddddddddd');
   }
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
+    print(now.hour);
     if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
@@ -78,8 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/team_dark.png',
@@ -95,8 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
@@ -112,8 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
@@ -129,8 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',

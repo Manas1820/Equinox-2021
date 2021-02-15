@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
-import '../constants.dart';
+import 'package:equinox_21/constants.dart';
 
-bool isClicked = false;
 DateTime now = DateTime.now();
 
 class TimelineTileItem extends StatefulWidget {
@@ -32,6 +31,8 @@ class TimelineTileItem extends StatefulWidget {
 }
 
 class _TimelineTileItemState extends State<TimelineTileItem> {
+  bool isClicked = false;
+
   @override
   Widget build(BuildContext context) {
     return TimelineTile(
@@ -56,6 +57,7 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
             InkWell(
               onTap: () {
                 setState(() {
+                  print(isClicked);
                   isClicked = !isClicked;
                 });
               },
