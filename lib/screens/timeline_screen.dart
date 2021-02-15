@@ -102,14 +102,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
                                 indicator = earthIndicator(context);
-                                colorUp = Colors.yellow;
-                                colorDown = Colors.green;
+                                colorUp = upLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isBefore(thisEvent)) {
-                                colorUp = Colors.green[400];
-                                colorDown = Colors.green[400];
+                                colorUp = downLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isAfter(thisEvent)) {
-                                colorUp = Colors.yellow[400];
-                                colorDown = Colors.yellow[400];
+                                colorUp = upLineColor;
+                                colorDown = upLineColor;
                               }
                               i == 0 ? isFirst = true : isFirst = false;
                               i++;

@@ -7,6 +7,9 @@ const textColorDay = Colors.black;
 const bottomNavIconColorLight = Color(0xff0E1C36);
 const bottomNavIconColorDark = Colors.white;
 
+const upLineColor = Color(0xffFFED43);
+const downLineColor = Color(0xff3F964F);
+
 const darkBackground = Color(0xFF0E1C36);
 const lightBackground = Color(0xFFCCF2FA);
 const dropDownColor = Color(0xFF6A7282);
@@ -28,8 +31,8 @@ const darkBackgroundGradient = LinearGradient(
   colors: [
     Color(0xff010205),
     Color(0xff070E1B),
-    Color(0xFF0E1C36),
     Color(0xff0C182F),
+    Color(0xFF0E1C36),
   ],
 );
 
