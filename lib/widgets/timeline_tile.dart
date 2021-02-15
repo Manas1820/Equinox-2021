@@ -62,9 +62,11 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    widget.title,
-                    style: textStyle(context, widget.isDarkMode, isClicked),
+                  Expanded(
+                    child: Text(
+                      widget.title,
+                      style: textStyle(context, widget.isDarkMode, isClicked),
+                    ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 16.0),
