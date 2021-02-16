@@ -60,6 +60,11 @@ TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
         fontSize: screenWidth(context) * 0.043,
         fontWeight: isClicked ? FontWeight.bold : null);
 
+TextStyle timerTextStyle(BuildContext context, bool isDarkMode) => GoogleFonts.k2d(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.12,
+    );
+
 TextStyle bottomNavBarIconTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? bottomNavIconColorDark : bottomNavIconColorLight,
