@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dough/dough.dart';
+import 'package:equinox_21/screens/timer_screen.dart';
 import 'package:equinox_21/widgets/indicators.dart';
 import 'package:equinox_21/widgets/timeline_tile.dart';
 import 'package:flutter/material.dart';
@@ -56,13 +58,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 left: screenWidth(context) * 0.02),
             child: Stack(
               children: [
-                Positioned(
-                  top: screenHeight(context) * 0.5,
-                  left: screenWidth(context) * 0.73,
-                  child: SizedBox(
-                      height: screenHeight(context) * 0.25,
-                      child: isDarkMode ? moonImage : sunImage),
-                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -140,6 +135,30 @@ class _TimelineScreenState extends State<TimelineScreen> {
                           }),
                     ),
                   ],
+                ),
+                Positioned(
+                  top: screenHeight(context) * 0.5,
+                  left: screenWidth(context) * 0.7,
+                  child: PressableDough(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios_rounded,
+                          color: Colors.black54,
+                        ),
+                        SizedBox(
+                            height: screenHeight(context) * 0.25,
+                            child: isDarkMode ? moonImage : sunImage),
+                      ],
+                    ),
+                    onReleased: (details) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TimerScreen()),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
