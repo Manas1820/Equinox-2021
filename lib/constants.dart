@@ -13,6 +13,9 @@ const tileBackgroundDark = Colors.black;
 const upLineColor = Color(0xffFFED43);
 const downLineColor = Color(0xff3F964F);
 
+const teamPageLightSubheading = Color(0xff5271AA);
+const teamPageDarkSubheading = Color(0xffE1D342);
+
 const darkBackground = Color(0xFF0E1C36);
 const lightBackground = Color(0xFFCCF2FA);
 const dropDownColor = Color(0xFF6A7282);
@@ -108,6 +111,49 @@ TextStyle showOfflineHeadingText(BuildContext context, bool isDarkMode) =>
 TextStyle showOfflineSubheadingText(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.09,
+    );
+
+TextStyle teamNameStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontWeight: FontWeight.bold,
+      fontSize: screenWidth(context) * 0.043,
+    );
+
+TextStyle teamPageSubheadingStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? teamPageDarkSubheading : teamPageLightSubheading,
       fontWeight: FontWeight.bold,
       fontSize: screenWidth(context) * 0.06,
+    );
+
+TextStyle aboutSubheadingStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? teamPageDarkSubheading : teamPageLightSubheading,
+      fontWeight: FontWeight.bold,
+      fontSize: screenWidth(context) * 0.048,
+    );
+
+TextStyle aboutusCardHeadingTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.052,
+      fontWeight: FontWeight.bold,
+    );
+
+TextStyle aboutusOrganiserHeadingTextStyle(
+        BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.042,
+      fontWeight: FontWeight.bold,
+    );
+
+TextStyle aboutusOrganiserNameTextStyle(
+        BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.042,
+      fontWeight: FontWeight.bold,
     );
