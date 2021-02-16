@@ -4,6 +4,7 @@ import 'package:equinox_21/screens/faq.dart';
 import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
 import 'package:equinox_21/screens/timer_screen.dart';
+import 'package:equinox_21/screens/timer_screen2.dart';
 import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
     //Container(color: Colors.blue),
-    TimerScreen(),
+    TimerScreen2(),
     Team(),
     TimelineScreen(),
     Aboutus(),
