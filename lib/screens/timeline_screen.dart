@@ -19,6 +19,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   DateTime now;
   bool isFirst = false;
   bool isLast = false;
+  int dayNumber = -1;
   final _firestore = FirebaseFirestore.instance;
 
   @override
@@ -94,6 +95,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   DateTime.parse(tile.data()['thisEvent']);
                               final nextEvent =
                                   DateTime.parse(tile.data()['nextEvent']);
+                              var day;
+                              try {
+                                day = tile.data()['day'];
+                                dayNumber = -2;
+                                print(dayNumber);
+                              } catch (e) {
+                                print(e);
+                              }
                               IndicatorStyle indicator = normalIndicator(context);
                               Color colorUp = upLineColor;
                               Color colorDown = downLineColor;
@@ -122,6 +131,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                 indicator: indicator,
                                 colorUp: colorUp,
                                 colorDown: colorDown,
+                                day: day,
                               );
                               timelineTileList.add(tileToAdd);
                             }
