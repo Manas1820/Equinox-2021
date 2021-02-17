@@ -145,7 +145,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                       children: [
                         Icon(
                           Icons.arrow_back_ios_rounded,
-                          color: Colors.black54,
+                          color: isDarkMode ? Colors.grey : Colors.black54,
                         ),
                         SizedBox(
                             height: screenHeight(context) * 0.25,

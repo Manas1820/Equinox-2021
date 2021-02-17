@@ -5,8 +5,8 @@ import 'package:equinox_21/constants.dart';
 
 IndicatorStyle earthIndicator(BuildContext context) {
   return IndicatorStyle(
-    width: screenWidth(context) * 0.12,
-    height: screenHeight(context) * 0.06,
+    width: 40.0,
+    height: 40.0,
     indicator: Container(
       decoration: BoxDecoration(
         color: darkBackground,
@@ -21,8 +21,8 @@ IndicatorStyle earthIndicator(BuildContext context) {
 
 IndicatorStyle normalIndicator(BuildContext context) {
   return IndicatorStyle(
-    width: screenWidth(context) * 0.08,
-    height: screenHeight(context) * 0.04,
+    width: 30.0,
+    height: 30.0,
     indicator: Container(
       decoration: BoxDecoration(
         color: darkBackground,
@@ -30,8 +30,7 @@ IndicatorStyle normalIndicator(BuildContext context) {
         boxShadow: [
           BoxShadow(
             color: Colors.black,
-            blurRadius: screenWidth(context) * 0.002, // soften the shadow
-            spreadRadius: screenWidth(context) * 0.001, //extend the shadow
+            blurRadius: 3.0, // soften the shadow
           ),
         ],
       ),

@@ -33,13 +33,8 @@ const lightBackgroundGradient = LinearGradient(
 const darkBackgroundGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
-  stops: [0.1, 0.5, 0.7, 0.9],
-  colors: [
-    Color(0xff010205),
-    Color(0xff070E1B),
-    Color(0xff0C182F),
-    Color(0xFF0E1C36),
-  ],
+  stops: [1.0],
+  colors: [Color(0xFF0E1C36)],
 );
 
 Widget indicatorImage = Image.asset('images/indicator.png');
@@ -147,16 +142,14 @@ TextStyle aboutusCardHeadingTextStyle(BuildContext context, bool isDarkMode) =>
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserHeadingTextStyle(
-        BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserNameTextStyle(
-        BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserNameTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,
