@@ -61,6 +61,12 @@ TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
         fontSize: screenWidth(context) * 0.043,
         fontWeight: isClicked ? FontWeight.bold : null);
 
+TextStyle dayNumberTextStyle(BuildContext context, isDarkMode) =>
+    GoogleFonts.raleway(
+        color: isDarkMode ? Color(0xffFFED43) : Colors.blueGrey,
+        fontWeight: FontWeight.bold,
+        fontSize: screenWidth(context) * 0.043);
+
 TextStyle timerTextStyle(BuildContext context, bool isDarkMode) => GoogleFonts.k2d(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.12,
