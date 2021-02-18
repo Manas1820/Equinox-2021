@@ -19,6 +19,7 @@ class _TimerScreen2State extends State<TimerScreen2> {
     print(DateTime.now());
     now = DateTime.now();
     manageTheme();
+    startTimer();
     super.initState();
   }
 
@@ -36,6 +37,22 @@ class _TimerScreen2State extends State<TimerScreen2> {
     }
   }
 
+  int remainingTime() {
+    var secondsLeftNow = (24 * 60 * 60) - secondsNow();
+    if (DateTime.now().day == 18) {
+      return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
+    }
+    if (DateTime.now().day == 19) {
+      return secondsLeftNow + (10 * 60 * 60);
+    }
+    if (DateTime.now().day == 20) {
+      return (10 * 60 * 60) - secondsLeftNow;
+    }
+    return 0;
+  }
+
+  bool startTimer() => DateTime.now().isAfter(DateTime.parse('2021-02-18 22:00:00'));
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +63,7 @@ class _TimerScreen2State extends State<TimerScreen2> {
         child: Padding(
           padding: EdgeInsets.all(screenWidth(context) * 0.12),
           child: CircularCountDownTimer(
-            duration: 5,
+            duration: remainingTime(),
             initialDuration: 0,
             controller: CountDownController(),
             width: MediaQuery.of(context).size.width,
@@ -64,7 +81,7 @@ class _TimerScreen2State extends State<TimerScreen2> {
             isReverse: true,
             isReverseAnimation: false,
             isTimerTextShown: true,
-            autoStart: false,
+            autoStart: startTimer(),
             onStart: () {
               print('Countdown Started');
             },
@@ -77,11 +94,3 @@ class _TimerScreen2State extends State<TimerScreen2> {
     );
   }
 }
-
-// bool startTimer(){
-//   var eventDate = DateTime.parse('2021-02-15 19:00:00');
-//   if(DateTime.now().isAfter(eventDate)){
-//     return true;
-//   }
-//   return false;
-// }
