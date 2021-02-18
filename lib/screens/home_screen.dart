@@ -32,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     manageTheme();
+    print(secondsNow());
     print('callllllllllllllllleddddddddddd');
   }
 

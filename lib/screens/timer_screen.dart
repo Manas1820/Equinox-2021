@@ -19,8 +19,9 @@ class _TimerScreenState extends State<TimerScreen> with TickerProviderStateMixin
     manageTheme();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: Duration(hours: 36),
     );
+    startTimer();
     super.initState();
   }
 
@@ -43,6 +44,10 @@ class _TimerScreenState extends State<TimerScreen> with TickerProviderStateMixin
         isDarkMode = false;
       });
     }
+  }
+
+  void startTimer() {
+    controller.reverse(from: controller.value == 0.0 ? 1.0 : controller.value);
   }
 
   @override
@@ -87,26 +92,26 @@ class _TimerScreenState extends State<TimerScreen> with TickerProviderStateMixin
                         ),
                       ),
                     ),
-                    AnimatedBuilder(
-                        animation: controller,
-                        builder: (context, child) {
-                          return FloatingActionButton.extended(
-                              onPressed: () {
-                                if (controller.isAnimating)
-                                  controller.stop();
-                                else {
-                                  controller.reverse(
-                                      from: controller.value == 0.0
-                                          ? 1.0
-                                          : controller.value);
-                                }
-                              },
-                              icon: Icon(controller.isAnimating
-                                  ? Icons.pause
-                                  : Icons.play_arrow),
-                              label:
-                                  Text(controller.isAnimating ? "Pause" : "Play"));
-                        }),
+                    // AnimatedBuilder(
+                    //     animation: controller,
+                    //     builder: (context, child) {
+                    //       return FloatingActionButton.extended(
+                    //           onPressed: () {
+                    //             if (controller.isAnimating)
+                    //               controller.stop();
+                    //             else {
+                    //               controller.reverse(
+                    //                   from: controller.value == 0.0
+                    //                       ? 1.0
+                    //                       : controller.value);
+                    //             }
+                    //           },
+                    //           icon: Icon(controller.isAnimating
+                    //               ? Icons.pause
+                    //               : Icons.play_arrow),
+                    //           label:
+                    //               Text(controller.isAnimating ? "Pause" : "Play"));
+                    //     }),
                   ],
                 ),
               );

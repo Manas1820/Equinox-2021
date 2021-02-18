@@ -37,6 +37,13 @@ const darkBackgroundGradient = LinearGradient(
   colors: [Color(0xFF0E1C36)],
 );
 
+int secondsNow() {
+  int hours = DateTime.now().hour;
+  int minutes = DateTime.now().minute;
+  int seconds = DateTime.now().second;
+  return (hours * 60 * 60) + (minutes * 60) + seconds;
+}
+
 Widget indicatorImage = Image.asset('images/indicator.png');
 Widget earthImageNight = Image.asset('images/earth_night.png');
 Widget moonImage = Image.asset('images/moon_white.png');
