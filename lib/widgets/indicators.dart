@@ -3,18 +3,22 @@ import 'package:flutter/widgets.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:equinox_21/constants.dart';
 
-IndicatorStyle earthIndicator(BuildContext context) {
+IndicatorStyle earthIndicatorDay(BuildContext context) {
   return IndicatorStyle(
-    width: 40.0,
-    height: 40.0,
-    indicator: Container(
-      decoration: BoxDecoration(
-        color: darkBackground,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Center(
-        child: earthImageNight,
-      ),
+    width: 50.0,
+    height: 50.0,
+    indicator: Center(
+      child: earthImageDay,
+    ),
+  );
+}
+
+IndicatorStyle earthIndicatorNight(BuildContext context) {
+  return IndicatorStyle(
+    width: 50.0,
+    height: 50.0,
+    indicator: Center(
+      child: earthImageNight,
     ),
   );
 }

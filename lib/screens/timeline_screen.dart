@@ -19,6 +19,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   DateTime now;
   bool isFirst = false;
   bool isLast = false;
+  bool isSwiped = false;
   int dayNumber = -1;
   final _firestore = FirebaseFirestore.instance;
 
@@ -108,7 +109,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               Color colorDown = downLineColor;
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
-                                indicator = earthIndicator(context);
+                                indicator = isDarkMode
+                                    ? earthIndicatorNight(context)
+                                    : earthIndicatorDay(context);
                                 colorUp = upLineColor;
                                 colorDown = downLineColor;
                               } else if (now.isBefore(thisEvent)) {

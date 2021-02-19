@@ -46,6 +46,7 @@ int secondsNow() {
 
 Widget indicatorImage = Image.asset('images/indicator.png');
 Widget earthImageNight = Image.asset('images/earth_night.png');
+Widget earthImageDay = Image.asset('images/earth_day.png');
 Widget moonImage = Image.asset('images/moon_white.png');
 Widget sunImage = Image.asset('images/sun.png');
 
@@ -74,7 +75,8 @@ TextStyle dayNumberTextStyle(BuildContext context, isDarkMode) =>
         fontWeight: FontWeight.bold,
         fontSize: screenWidth(context) * 0.043);
 
-TextStyle timerTextStyle(BuildContext context, bool isDarkMode) => GoogleFonts.k2d(
+TextStyle timerTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.keaniaOne(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.12,
     );
