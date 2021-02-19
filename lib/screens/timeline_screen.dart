@@ -109,10 +109,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               Color colorDown = downLineColor;
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
-                                indicator = earthIndicatorNight(context);
-                                // isDarkMode
-                                //     ? earthIndicatorNight(context)
-                                //     : earthIndicatorDay(context);
+                                indicator = isDarkMode
+                                    ? earthIndicatorNight(context)
+                                    : earthIndicatorDay(context);
                                 colorUp = upLineColor;
                                 colorDown = downLineColor;
                               } else if (now.isBefore(thisEvent)) {

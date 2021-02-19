@@ -3,15 +3,15 @@ import 'package:flutter/widgets.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:equinox_21/constants.dart';
 
-// IndicatorStyle earthIndicatorDay(BuildContext context) {
-//   return IndicatorStyle(
-//     width: 50.0,
-//     height: 50.0,
-//     indicator: Center(
-//       child: earthImageDay,
-//     ),
-//   );
-// }
+IndicatorStyle earthIndicatorDay(BuildContext context) {
+  return IndicatorStyle(
+    width: 50.0,
+    height: 50.0,
+    indicator: Center(
+      child: earthImageDay,
+    ),
+  );
+}
 
 IndicatorStyle earthIndicatorNight(BuildContext context) {
   return IndicatorStyle(
