@@ -46,7 +46,7 @@ int secondsNow() {
 
 Widget indicatorImage = Image.asset('images/indicator.png');
 Widget earthImageNight = Image.asset('images/earth_night.png');
-// Widget earthImageDay = Image.asset('images/earth_day.png');
+Widget earthImageDay = Image.asset('images/earth_day.png');
 Widget moonImage = Image.asset('images/moon_white.png');
 Widget sunImage = Image.asset('images/sun.png');
 
