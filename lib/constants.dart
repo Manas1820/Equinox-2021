@@ -159,16 +159,29 @@ TextStyle aboutusCardHeadingTextStyle(BuildContext context, bool isDarkMode) =>
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserHeadingTextStyle(BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserHeadingTextStyle(
+        BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserNameTextStyle(BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserNameTextStyle(
+        BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,
       fontWeight: FontWeight.bold,
     );
+
+TextStyle teamPageTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.057,
+    );
+
+EdgeInsets textTeamPagePadding(BuildContext context) => EdgeInsets.only(
+    left: screenWidth(context) * 0.01,
+    top: screenWidth(context) * 0.01,
+    bottom: screenWidth(context) * 0.01);
