@@ -79,8 +79,7 @@ class _TeamState extends State<Team> {
                   SizedBox(
                     height: 45,
                   ),
-                  Text('\tMy Team',
-                      style: headingTextStyle(context, isDarkMode)),
+                  Text('\tMy Team', style: headingTextStyle(context, isDarkMode)),
                   SizedBox(
                     height: 45,
                   ),
@@ -110,26 +109,24 @@ class _TeamState extends State<Team> {
                         Row(
                           children: [
                             Text(username,
-                                style: faqTileSubheadingTextStyle(
-                                    context, isDarkMode)),
+                                style:
+                                    faqTileSubheadingTextStyle(context, isDarkMode)),
                             Expanded(child: SizedBox()),
                             Text('19BEC0123',
-                                style: faqTileSubheadingTextStyle(
-                                    context, isDarkMode)),
+                                style:
+                                    faqTileSubheadingTextStyle(context, isDarkMode)),
                           ],
                         ),
                         Row(
                           children: [
                             Text(
                               teammate1,
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                             Expanded(child: SizedBox()),
                             Text(
                               '19BEC0123',
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                           ],
                         ),
@@ -137,14 +134,12 @@ class _TeamState extends State<Team> {
                           children: [
                             Text(
                               teammate2,
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                             Expanded(child: SizedBox()),
                             Text(
                               '19BEC0123',
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                           ],
                         ),
@@ -152,14 +147,12 @@ class _TeamState extends State<Team> {
                           children: [
                             Text(
                               teammate3,
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                             Expanded(child: SizedBox()),
                             Text(
                               '19BEC0123',
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                           ],
                         ),
@@ -167,14 +160,12 @@ class _TeamState extends State<Team> {
                           children: [
                             Text(
                               teammate4,
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                             Expanded(child: SizedBox()),
                             Text(
                               '19BEC0123',
-                              style: faqTileSubheadingTextStyle(
-                                  context, isDarkMode),
+                              style: faqTileSubheadingTextStyle(context, isDarkMode),
                             ),
                           ],
                         ),
@@ -182,8 +173,8 @@ class _TeamState extends State<Team> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                        left: 35.0, right: 35.0, top: 45.0),
+                    padding:
+                        const EdgeInsets.only(left: 35.0, right: 35.0, top: 45.0),
                     child: Divider(
                       color: color1,
                       thickness: 4,
@@ -218,8 +209,8 @@ class _TeamState extends State<Team> {
                               ),
                               Text(
                                 'Xs12Vd',
-                                style: GoogleFonts.raleway(
-                                    color: color1, fontSize: 20),
+                                style:
+                                    GoogleFonts.raleway(color: color1, fontSize: 20),
                               ),
                             ],
                           ),
