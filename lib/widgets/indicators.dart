@@ -3,26 +3,30 @@ import 'package:flutter/widgets.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:equinox_21/constants.dart';
 
-IndicatorStyle earthIndicator(BuildContext context) {
+IndicatorStyle earthIndicatorDay(BuildContext context) {
   return IndicatorStyle(
-    width: screenWidth(context) * 0.12,
-    height: screenHeight(context) * 0.06,
-    indicator: Container(
-      decoration: BoxDecoration(
-        color: darkBackground,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Center(
-        child: earthImageNight,
-      ),
+    width: 50.0,
+    height: 50.0,
+    indicator: Center(
+      child: earthImageDay,
+    ),
+  );
+}
+
+IndicatorStyle earthIndicatorNight(BuildContext context) {
+  return IndicatorStyle(
+    width: 50.0,
+    height: 50.0,
+    indicator: Center(
+      child: earthImageNight,
     ),
   );
 }
 
 IndicatorStyle normalIndicator(BuildContext context) {
   return IndicatorStyle(
-    width: screenWidth(context) * 0.08,
-    height: screenHeight(context) * 0.04,
+    width: 30.0,
+    height: 30.0,
     indicator: Container(
       decoration: BoxDecoration(
         color: darkBackground,
@@ -30,8 +34,7 @@ IndicatorStyle normalIndicator(BuildContext context) {
         boxShadow: [
           BoxShadow(
             color: Colors.black,
-            blurRadius: screenWidth(context) * 0.002, // soften the shadow
-            spreadRadius: screenWidth(context) * 0.001, //extend the shadow
+            blurRadius: 3.0, // soften the shadow
           ),
         ],
       ),

@@ -10,9 +10,15 @@ class _FaqState extends State<Faq> {
   bool isDarkMode = false;
   DateTime now;
 
+  @override
+  void initState() {
+    manageTheme();
+    super.initState();
+  }
+
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.hour > 18 && now.hour < 6) {
+    if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
       });
@@ -42,14 +48,17 @@ class _FaqState extends State<Faq> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text('we got you covered',
-                        style: faqTileSubheadingTextStyle(context, isDarkMode)),
+                        style: headingSubTextStyle(context, isDarkMode)),
                   ),
                 ],
               ),
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("What are the rules?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
@@ -73,7 +82,10 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("What can I build?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
@@ -94,7 +106,10 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("Are hardware hacks allowed?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
@@ -114,7 +129,10 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("How much does it cost?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
@@ -135,7 +153,10 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("How many people in a team?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
@@ -155,7 +176,10 @@ class _FaqState extends State<Faq> {
               Padding(
                 padding: expantionTilePaddingFaq(context),
                 child: Card(
+                  color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                   child: ExpansionTile(
+                    backgroundColor:
+                        isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                     title: Text("I still have a question...",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [

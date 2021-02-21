@@ -19,9 +19,11 @@ dependencies:
   firebase_core:
   flutter_svg:
   url_launcher:
+  dough: ^0.3.7
   firebase_messaging: ^7.0.3
   connectivity_wrapper: ^1.0.4
   flutter_feather_icons: ^1.0.3
+  circular_countdown_timer: ^0.1.0
   
 dev_dependencies:
   flutter_test:

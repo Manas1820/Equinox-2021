@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dough/dough.dart';
+import 'package:equinox_21/screens/timer_screen.dart';
 import 'package:equinox_21/widgets/indicators.dart';
 import 'package:equinox_21/widgets/timeline_tile.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
   DateTime now;
   bool isFirst = false;
   bool isLast = false;
+  bool isSwiped = false;
+  int dayNumber = -1;
   final _firestore = FirebaseFirestore.instance;
 
   @override
@@ -28,8 +32,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
   }
 
   void manageTheme() {
-    DateTime now = DateTime.now(); // current time
-    if (now.hour > 18 && now.hour < 6) {
+    DateTime now = DateTime.now();
+    print(now.hour); // current time
+    if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
       });
@@ -52,7 +57,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
           child: Padding(
             padding: EdgeInsets.only(
                 top: screenHeight(context) * 0.04,
-                bottom: screenHeight(context) * 0.05,
                 left: screenWidth(context) * 0.02),
             child: Stack(
               children: [
@@ -69,7 +73,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     SizedBox(height: screenHeight(context) * 0.01),
                     Expanded(
                       child: StreamBuilder<QuerySnapshot>(
-                          stream: _firestore.collection('events').snapshots(),
+                          stream: _firestore
+                              .collection('events')
+                              .orderBy('thisEvent')
+                              .snapshots(),
                           builder: (context, snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -89,20 +96,30 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   DateTime.parse(tile.data()['thisEvent']);
                               final nextEvent =
                                   DateTime.parse(tile.data()['nextEvent']);
+                              var day;
+                              try {
+                                day = tile.data()['day'];
+                                dayNumber = -2;
+                                print(dayNumber);
+                              } catch (e) {
+                                print(e);
+                              }
                               IndicatorStyle indicator = normalIndicator(context);
-                              Color colorUp = Colors.yellow[400];
-                              Color colorDown = Colors.green[400];
+                              Color colorUp = upLineColor;
+                              Color colorDown = downLineColor;
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
-                                indicator = earthIndicator(context);
-                                colorUp = Colors.yellow;
-                                colorDown = Colors.green;
+                                indicator = isDarkMode
+                                    ? earthIndicatorNight(context)
+                                    : earthIndicatorDay(context);
+                                colorUp = upLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isBefore(thisEvent)) {
-                                colorUp = Colors.green[400];
-                                colorDown = Colors.green[400];
+                                colorUp = downLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isAfter(thisEvent)) {
-                                colorUp = Colors.yellow[400];
-                                colorDown = Colors.yellow[400];
+                                colorUp = upLineColor;
+                                colorDown = upLineColor;
                               }
                               i == 0 ? isFirst = true : isFirst = false;
                               i++;
@@ -117,6 +134,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                 indicator: indicator,
                                 colorUp: colorUp,
                                 colorDown: colorDown,
+                                day: day,
                               );
                               timelineTileList.add(tileToAdd);
                             }
@@ -133,10 +151,27 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 ),
                 Positioned(
                   top: screenHeight(context) * 0.5,
-                  left: screenWidth(context) * 0.73,
-                  child: SizedBox(
-                      height: screenHeight(context) * 0.25,
-                      child: isDarkMode ? moonImage : sunImage),
+                  left: screenWidth(context) * 0.7,
+                  child: PressableDough(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios_rounded,
+                          color: isDarkMode ? Colors.grey : Colors.black54,
+                        ),
+                        SizedBox(
+                            height: screenHeight(context) * 0.25,
+                            child: isDarkMode ? moonImage : sunImage),
+                      ],
+                    ),
+                    onReleased: (details) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TimerScreen()),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

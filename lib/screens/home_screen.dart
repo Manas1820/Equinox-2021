@@ -3,6 +3,7 @@ import 'package:equinox_21/constants.dart';
 import 'package:equinox_21/screens/faq.dart';
 import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
+import 'package:equinox_21/screens/timer_screen.dart';
 import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
-    Container(color: Colors.blue),
+    //Container(color: Colors.blue),
+    TimerScreen(),
     Team(),
     TimelineScreen(),
     Aboutus(),
@@ -28,13 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    print('callllllllllllllllleddddddddddd');
     manageTheme();
+    print(secondsNow());
+    print('callllllllllllllllleddddddddddd');
   }
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.hour > 18 && now.hour < 6) {
+    print(now.hour);
+    if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
       });
@@ -78,8 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/team_dark.png',
@@ -95,8 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
@@ -112,8 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
@@ -129,8 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',
