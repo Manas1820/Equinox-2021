@@ -42,12 +42,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   UserCredential authResult;
   User newuser;
 
-
-
   void sendverification() async {
     await authResult.user.sendEmailVerification();
     print('email sent');
-    ScaffoldMessenger.of(context).showSnackBar(
+    Scaffold.of(context).showSnackBar(
       SnackBar(
         content: const Text(
             'Verification link has been sent \n Please verify to continue '),
@@ -57,22 +55,17 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       await verify();
       if (verified == true) {
         if (authResult.user.uid != null) {
-          await firestoreInstance
-              .collection('users')
-              .doc(authResult.user.uid)
-              .set({
+          await firestoreInstance.collection('users').doc(authResult.user.uid).set({
             'username': _Username,
             'email': _email,
           });
-          Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (context) => LandingPage()));
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LandingPage()));
         }
-
       } else {
         print("Email is not verified");
       }
     });
-
   }
 
   void verify() async {
@@ -83,40 +76,41 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     await newuser.reload();
     print(newuser.emailVerified);
     print('checking');
-   if( newuser.emailVerified!=null){
-     if ((await newuser.emailVerified) == true) {
-       setState(() {
-         verified = true;
-         print('verified = true');
-       });
-     }
-   }
+    if (newuser.emailVerified != null) {
+      if ((await newuser.emailVerified) == true) {
+        setState(() {
+          verified = true;
+          print('verified = true');
+        });
+      }
+    }
   }
 
   void _submit() async {
-    for(var i=0;i<emails.length;i++){
-      if(_email== emails[i][0]){
+    for (var i = 0; i < emails.length; i++) {
+      if (_email == emails[i][0]) {
         try {
           if (_formType == EmailSignInFormType.signIn) {
-             authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
+            authResult = await auth.signInWithEmailAndPassword(
+                email: _email, password: _password);
             print(authResult);
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => LandingPage()));
             print('HomePage called 1');
           }
-          if(_formType == EmailSignInFormType.register){
-             authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
+          if (_formType == EmailSignInFormType.register) {
+            authResult = await auth.createUserWithEmailAndPassword(
+                email: _email, password: _password);
             print(authResult);
             sendverification();
           }
-
         } catch (e) {
           print(e.toString());
           if (e is PlatformException) {
             if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
               hello = e.code;
               print(hello);
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text(
                       'This Email is already registered \n Please go back '),
@@ -124,21 +118,21 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               );
             }
             if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Wrong password'),
                 ),
               );
             }
             if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Wrong password!!!'),
                 ),
               );
             }
             if (e.code == 'ERROR_USER_NOT_FOUND') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('No user found!!!'),
                 ),
@@ -148,8 +142,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         }
       }
     }
-
-
   }
 
   void _collectmails() async {
@@ -182,7 +174,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   void forgotpassword() async {
     try {
       await auth.sendPasswordResetEmail(email: _email);
-      ScaffoldMessenger.of(context).showSnackBar(
+      Scaffold.of(context).showSnackBar(
         SnackBar(
           content: const Text('Reset email has been sent'),
         ),
@@ -191,7 +183,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       print(e);
       if (e is PlatformException) {
         if (e != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
+          Scaffold.of(context).showSnackBar(
             SnackBar(
               content: const Text('Enter your email'),
             ),

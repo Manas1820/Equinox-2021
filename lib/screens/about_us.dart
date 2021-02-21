@@ -1,6 +1,5 @@
 import 'package:equinox_21/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Aboutus extends StatefulWidget {
   @override
@@ -43,8 +42,7 @@ class _AboutusState extends State<Aboutus> {
                   SizedBox(
                     height: 45,
                   ),
-                  Text('\t\tAbout us',
-                      style: headingTextStyle(context, isDarkMode)),
+                  Text('\t\tAbout us', style: headingTextStyle(context, isDarkMode)),
                   SizedBox(
                     height: 15,
                   ),
@@ -54,9 +52,7 @@ class _AboutusState extends State<Aboutus> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         elevation: 10,
-                        color: isDarkMode
-                            ? tileBackgroundDark
-                            : tileBackgroundLight,
+                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
@@ -88,7 +84,7 @@ class _AboutusState extends State<Aboutus> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         elevation: 10,
-                        color: Colors.white,
+                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
@@ -120,7 +116,7 @@ class _AboutusState extends State<Aboutus> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         elevation: 10,
-                        color: Colors.white,
+                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
@@ -135,8 +131,10 @@ class _AboutusState extends State<Aboutus> {
                               SizedBox(
                                 height: 15,
                               ),
-                              Image.asset(
-                                'images/image 89.png',
+                              Center(
+                                child: Image.asset(
+                                  'images/image 89.png',
+                                ),
                               ),
                               SizedBox(
                                 height: 35,
@@ -151,7 +149,7 @@ class _AboutusState extends State<Aboutus> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
                         elevation: 10,
-                        color: Colors.white,
+                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
