@@ -1,6 +1,5 @@
 import 'package:equinox_21/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Aboutus extends StatefulWidget {
   @override
