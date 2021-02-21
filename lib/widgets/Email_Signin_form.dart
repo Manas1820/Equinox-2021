@@ -55,10 +55,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       await verify();
       if (verified == true) {
         if (authResult.user.uid != null) {
-          await firestoreInstance
-              .collection('users')
-              .doc(authResult.user.uid)
-              .set({
+          await firestoreInstance.collection('users').doc(authResult.user.uid).set({
             'username': _Username,
             'email': _email,
           });

@@ -8,7 +8,7 @@ const bottomNavIconColorLight = Color(0xff0E1C36);
 const bottomNavIconColorDark = Colors.white;
 
 const tileBackgroundLight = Colors.white;
-const tileBackgroundDark = Colors.black;
+const tileBackgroundDark = Color(0xff091324);
 
 const upLineColor = Color(0xffFFED43);
 const downLineColor = Color(0xff3F964F);
