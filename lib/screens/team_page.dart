@@ -17,7 +17,9 @@ class Team extends StatefulWidget {
 
 class _TeamState extends State<Team> {
   bool isDarkMode = false;
+  bool loading = false;
   DateTime now;
+  Map<String, dynamic> data;
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
     if (now.hour > 18 || now.hour < 6) {
@@ -31,13 +33,23 @@ class _TeamState extends State<Team> {
     }
   }
 
-  getData() {
-    FirebaseFirestore.instance.collection('Details').doc("Bahubali").get();
+  getData() async {
+    var snap = await FirebaseFirestore.instance
+        .collection('Details')
+        .doc('Bahubali')
+        .get();
+    setState(() {
+      data = snap.data();
+      loading = true;
+    });
+
+    print(data.toString());
   }
 
   @override
   void initState() {
     manageTheme();
+    getData();
     super.initState();
   }
 
@@ -82,7 +94,7 @@ class _TeamState extends State<Team> {
                     height: 13,
                   ),
                   Text(
-                    "teamname",
+                    "Bahubali",
                     style: showOfflineSubheadingText(context, isDarkMode),
                   ),
                   SizedBox(
@@ -92,6 +104,23 @@ class _TeamState extends State<Team> {
                     "Our Stars",
                     style: teamPageSubheadingStyle(context, isDarkMode),
                   ),
+                  Expanded(
+                      child: loading
+                          ? ListView.builder(
+                              itemCount: data['teammate'].length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: textTeamPagePadding(context),
+                                  child: Text(
+                                    data['teammate'][index].toString(),
+                                    style:
+                                        teamPageTextStyle(context, isDarkMode),
+                                  ),
+                                );
+                              })
+                          : Container(
+                              child: Center(child: CircularProgressIndicator()),
+                            )),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 35.0, right: 35.0, top: 45.0),
@@ -117,25 +146,24 @@ class _TeamState extends State<Team> {
                                 fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 15),
-                          Center(
-                            child: Row(
-                              children: [
-                                Text(
-                                  'code:\t',
-                                  style: GoogleFonts.raleway(
-                                      color: isDarkMode
-                                          ? textColorNight
-                                          : textColorDay,
-                                      fontSize: screenWidth(context) * 0.045),
-                                ),
-                                Text(
-                                  'Xs12Vd',
-                                  style: GoogleFonts.raleway(
-                                      color: Color(0xffE1D342),
-                                      fontSize: screenWidth(context) * 0.045),
-                                ),
-                              ],
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'code:',
+                                style: GoogleFonts.raleway(
+                                    color: isDarkMode
+                                        ? textColorNight
+                                        : textColorDay,
+                                    fontSize: screenWidth(context) * 0.045),
+                              ),
+                              Text(
+                                '\t\tXs12Vd',
+                                style: GoogleFonts.raleway(
+                                    color: Color(0xffE1D342),
+                                    fontSize: screenWidth(context) * 0.045),
+                              ),
+                            ],
                           ),
                         ],
                       ),
