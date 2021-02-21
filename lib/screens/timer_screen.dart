@@ -1,4 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:equinox_21/widgets/indicators.dart';
@@ -39,13 +41,13 @@ class _TimerScreenState extends State<TimerScreen> {
 
   int remainingTime() {
     var secondsLeftNow = (24 * 60 * 60) - secondsNow();
-    if (DateTime.now().day == 18) {
+    if (DateTime.now().day == 20) {
       return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 19) {
+    if (DateTime.now().day == 21) {
       return secondsLeftNow + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 20) {
+    if (DateTime.now().day == 22) {
       return (10 * 60 * 60) - secondsLeftNow;
     }
     return 0;
@@ -56,38 +58,51 @@ class _TimerScreenState extends State<TimerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(screenWidth(context) * 0.12),
-          child: CircularCountDownTimer(
-            duration: remainingTime(),
-            initialDuration: 0,
-            controller: CountDownController(),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            ringColor: isDarkMode ? Color(0xffCCCC) : Color(0xff0E1C36),
-            // isDarkMode ? Color(0xffCCCCCC) : Color(0xff0E1C36),
-            ringGradient: null,
-            fillColor: isDarkMode ? Color(0xffCCCC) : Color(0xff0E1C36),
-            fillGradient: null,
-            backgroundGradient: null,
-            strokeWidth: 7.0,
-            strokeCap: StrokeCap.round,
-            textStyle: timerTextStyle(context, isDarkMode),
-            textFormat: CountdownTextFormat.HH_MM_SS,
-            isReverse: true,
-            isReverseAnimation: false,
-            isTimerTextShown: true,
-            autoStart: startTimer(),
-            onStart: () {
-              print('Countdown Started');
-            },
-            onComplete: () {
-              print('Countdown Ended');
-            },
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+          ),
+          child: Stack(
+            children: [
+              isDarkMode
+                  ? Image.asset('images/moon_ss.png')
+                  : Image.asset('images/sun_ss.png'),
+              Padding(
+                padding: EdgeInsets.only(
+                    bottom: screenWidth(context) * 0.12,
+                    left: screenWidth(context) * 0.12,
+                    right: screenWidth(context) * 0.12,
+                    top: screenWidth(context) * 0.7),
+                child: CircularCountDownTimer(
+                  duration: remainingTime(),
+                  initialDuration: 0,
+                  controller: CountDownController(),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  ringColor: isDarkMode ? Colors.grey : Colors.black,
+                  // isDarkMode ? Color(0xffCCCCCC) : Color(0xff0E1C36),
+                  ringGradient: null,
+                  fillColor: isDarkMode ? Colors.grey : Colors.black,
+                  fillGradient: null,
+                  backgroundGradient: null,
+                  strokeWidth: 7.0,
+                  strokeCap: StrokeCap.round,
+                  textStyle: timerTextStyle(context, isDarkMode),
+                  textFormat: CountdownTextFormat.HH_MM_SS,
+                  isReverse: true,
+                  isReverseAnimation: false,
+                  isTimerTextShown: true,
+                  autoStart: startTimer(),
+                  onStart: () {
+                    print('Countdown Started');
+                  },
+                  onComplete: () {
+                    print('Countdown Ended');
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
