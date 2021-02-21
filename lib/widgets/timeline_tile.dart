@@ -14,6 +14,7 @@ class TimelineTileItem extends StatefulWidget {
   final indicator;
   final colorUp;
   final colorDown;
+  final day;
 
   TimelineTileItem(
       {this.title,
@@ -24,7 +25,8 @@ class TimelineTileItem extends StatefulWidget {
       this.isDarkMode,
       this.indicator,
       this.colorUp,
-      this.colorDown});
+      this.colorDown,
+      this.day});
 
   @override
   _TimelineTileItemState createState() => _TimelineTileItemState();
@@ -32,6 +34,7 @@ class TimelineTileItem extends StatefulWidget {
 
 class _TimelineTileItemState extends State<TimelineTileItem> {
   bool isClicked = false;
+  int oldDayNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -91,13 +94,26 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
           ],
         ),
       ),
-      startChild: Container(
-        child: Text(
-          widget.time,
-          textAlign: TextAlign.center,
-          style: textStyle(context, widget.isDarkMode, false),
-        ),
-      ),
+      startChild: widget.day != null
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  widget.day,
+                  style: dayNumberTextStyle(context, widget.isDarkMode),
+                ),
+                Text(
+                  widget.time,
+                  textAlign: TextAlign.center,
+                  style: textStyle(context, widget.isDarkMode, false),
+                ),
+              ],
+            )
+          : Text(
+              widget.time,
+              textAlign: TextAlign.center,
+              style: textStyle(context, widget.isDarkMode, false),
+            ),
     );
   }
 }

@@ -37,8 +37,16 @@ const darkBackgroundGradient = LinearGradient(
   colors: [Color(0xFF0E1C36)],
 );
 
+int secondsNow() {
+  int hours = DateTime.now().hour;
+  int minutes = DateTime.now().minute;
+  int seconds = DateTime.now().second;
+  return (hours * 60 * 60) + (minutes * 60) + seconds;
+}
+
 Widget indicatorImage = Image.asset('images/indicator.png');
 Widget earthImageNight = Image.asset('images/earth_night.png');
+Widget earthImageDay = Image.asset('images/earth_day.png');
 Widget moonImage = Image.asset('images/moon_white.png');
 Widget sunImage = Image.asset('images/sun.png');
 
@@ -61,7 +69,14 @@ TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
         fontSize: screenWidth(context) * 0.043,
         fontWeight: isClicked ? FontWeight.bold : null);
 
-TextStyle timerTextStyle(BuildContext context, bool isDarkMode) => GoogleFonts.k2d(
+TextStyle dayNumberTextStyle(BuildContext context, isDarkMode) =>
+    GoogleFonts.raleway(
+        color: isDarkMode ? Color(0xffFFED43) : Colors.blueGrey,
+        fontWeight: FontWeight.bold,
+        fontSize: screenWidth(context) * 0.043);
+
+TextStyle timerTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.keaniaOne(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.12,
     );
