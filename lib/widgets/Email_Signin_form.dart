@@ -96,18 +96,29 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           ],
         ),
         actions: [
-          RaisedButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
+          Row(
 
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.1,
               ),
-               elevation: 5.0,
-                    child: Text('Submit',style:TextStyle(color:Colors.black)),
-              color: color1,
-              onPressed: () {
-                  Navigator.of(context).pop(customController.text.toString());
-                }
+              RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+
+                  ),
+                   elevation: 5.0,
+                        child: Text('Reset password',style:TextStyle(color:Colors.black)),
+                  color: color1,
+                  onPressed: () {
+                      Navigator.of(context).pop(customController.text.toString());
+                    }
+                  ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.18,
               ),
+            ],
+          ),
 
 
         ],
