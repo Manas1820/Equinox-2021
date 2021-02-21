@@ -1,4 +1,5 @@
-import 'package:equinox_21/screens/home_screen.dart';
+
+import 'package:equinox_21/screens/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     return ConnectivityAppWrapper(
       app: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: LandingPage(),
       ),
     );
   }
