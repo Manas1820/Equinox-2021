@@ -1,13 +1,8 @@
-
-
-
 import 'package:equinox_21/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
 import 'email_sigin_page.dart';
-
 
 class LandingPage extends StatefulWidget {
   @override
@@ -15,19 +10,19 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final auth1 =FirebaseAuth.instance;
+  final auth1 = FirebaseAuth.instance;
   User user1;
-  void authCurrentUser()async{
-    setState(() async{
+  void authCurrentUser() async {
+    setState(() async {
       user1 = await auth1.currentUser;
     });
   }
+
   @override
   void initState() {
     authCurrentUser();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,26 +31,23 @@ class _LandingPageState extends State<LandingPage> {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             User user = snapshot.data;
-            if (user != null ) {
-              if(user1 != null){
+            if (user != null) {
+              if (user1 != null) {
                 user1.reload();
-                if( user1.emailVerified == true){
+                if (user1.emailVerified == true) {
                   print('HomePage called 2');
                   return HomeScreen();
                 }
               }
-
             }
             return EmailSigninPage();
-          }
-          else {
+          } else {
             return Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
               ),
             );
           }
-        }
-    );
+        });
   }
 }

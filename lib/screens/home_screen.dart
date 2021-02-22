@@ -8,6 +8,7 @@ import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/screens/about_us.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 bool isDarkMode = false;
 
@@ -19,10 +20,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
-    //Container(color: Colors.blue),
-    TimerScreen(),
-    Team(),
     TimelineScreen(),
+    Team(),
+    Container(
+      child: Center(
+        child: Text(
+          'Code of Conduct',
+          style: GoogleFonts.raleway(fontSize: 40.0, color: Colors.red),
+        ),
+      ),
+    ),
     Aboutus(),
     Faq(),
   ];
@@ -66,18 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
-                    'images/equinox_white.png',
-                    height: screenHeight(context) * 0.05,
+                    'images/timeline_dark.png',
+                    height: screenHeight(context) * 0.04,
                   )
                 : Image.asset(
-                    'images/equinox_black.png',
-                    height: screenHeight(context) * 0.05,
+                    'images/timeline_light.png',
+                    height: screenHeight(context) * 0.04,
                   ),
             title: Text(
-              'Equinox',
+              'Timeline',
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
@@ -98,18 +105,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
-                    'images/timeline_dark.png',
-                    height: screenHeight(context) * 0.04,
+                    'images/equinox_white.png',
+                    height: screenHeight(context) * 0.05,
                   )
                 : Image.asset(
-                    'images/timeline_light.png',
-                    height: screenHeight(context) * 0.04,
+                    'images/equinox_black.png',
+                    height: screenHeight(context) * 0.05,
                   ),
             title: Text(
-              'Timeline',
+              'Equinox',
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),

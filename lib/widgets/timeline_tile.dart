@@ -95,19 +95,23 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
         ),
       ),
       startChild: widget.day != null
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  widget.day,
-                  style: dayNumberTextStyle(context, widget.isDarkMode),
-                ),
-                Text(
-                  widget.time,
-                  textAlign: TextAlign.center,
-                  style: textStyle(context, widget.isDarkMode, false),
-                ),
-              ],
+          ? Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  SizedBox(height: screenHeight(context) * 0.02),
+                  Text(
+                    widget.day,
+                    style: dayNumberTextStyle(context, widget.isDarkMode),
+                  ),
+                  Text(
+                    widget.time,
+                    textAlign: TextAlign.center,
+                    style: textStyle(context, widget.isDarkMode, false),
+                  ),
+                ],
+              ),
             )
           : Text(
               widget.time,

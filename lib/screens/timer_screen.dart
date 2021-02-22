@@ -22,6 +22,7 @@ class _TimerScreenState extends State<TimerScreen> {
     now = DateTime.now();
     manageTheme();
     startTimer();
+    print(remainingTime());
     super.initState();
   }
 
@@ -41,14 +42,14 @@ class _TimerScreenState extends State<TimerScreen> {
 
   int remainingTime() {
     var secondsLeftNow = (24 * 60 * 60) - secondsNow();
-    if (DateTime.now().day == 20) {
+    if (DateTime.now().day == 21) {
       return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 21) {
+    if (DateTime.now().day == 22) {
       return secondsLeftNow + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 22) {
-      return (10 * 60 * 60) - secondsLeftNow;
+    if (DateTime.now().day == 23) {
+      return (10 * 60 * 60) - secondsNow();
     }
     return 0;
   }
