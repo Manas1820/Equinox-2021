@@ -70,6 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: pages[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color(0xffB1E6F7),
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -77,11 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   )
                 : Image.asset(
                     'images/timeline_light.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   ),
             title: Text(
               'Timeline',
@@ -93,11 +94,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: isDarkMode
                 ? Image.asset(
                     'images/team_dark.png',
-                    height: screenHeight(context) * 0.05,
+                    height: screenHeight(context) * 0.035,
                   )
                 : Image.asset(
                     'images/team_light.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   ),
             title: Text(
               'Team',
@@ -109,11 +110,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: isDarkMode
                 ? Image.asset(
                     'images/equinox_white.png',
-                    height: screenHeight(context) * 0.05,
+                    height: screenHeight(context) * 0.04,
                   )
                 : Image.asset(
                     'images/equinox_black.png',
-                    height: screenHeight(context) * 0.05,
+                    height: screenHeight(context) * 0.04,
                   ),
             title: Text(
               'Equinox',
@@ -125,11 +126,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   )
                 : Image.asset(
                     'images/aboutUs_light.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   ),
             title: Text(
               'About Us',
@@ -141,14 +142,14 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   )
                 : Image.asset(
                     'images/faq_light.png',
-                    height: screenHeight(context) * 0.04,
+                    height: screenHeight(context) * 0.035,
                   ),
             title: Text(
-              'FAQ',
+              'FAQs',
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
