@@ -42,95 +42,92 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   UserCredential authResult;
   User newuser;
 
-  Future<String> createAlertDialog(BuildContext context){
-    TextEditingController customController =TextEditingController();
-    return showDialog(context: context,builder:  (context){
-      return AlertDialog(
-        backgroundColor: Colors.black,
-        title: Text("Forgot password?",style:TextStyle(color:Colors.white)),
-        content:Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text('Enter email id',style:TextStyle(color:Colors.white,fontSize: 15)),
-            ),
-            TextField(
-              style: GoogleFonts.rambla(color: color1),
-              cursorColor: Colors.white,
-              decoration: InputDecoration(
-                labelText: 'Email ID',
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13),
-                contentPadding: const EdgeInsets.all(8.0),
-                errorBorder: new OutlineInputBorder(
-                  borderSide: new BorderSide(
-                    color: Colors.white,
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(12.0),
+  Future<String> createAlertDialog(BuildContext context) {
+    TextEditingController customController = TextEditingController();
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.black,
+            title: Text("Forgot password?", style: TextStyle(color: Colors.white)),
+            content: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Enter email id',
+                      style: TextStyle(color: Colors.white, fontSize: 15)),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.white,
-                    width: 2.0,
-                  ),
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                errorStyle: TextStyle(
-                  color: color1,
-                ),
-              ),
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              controller: customController,
-
-            ),
-          ],
-        ),
-        actions: [
-          Row(
-
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.1,
-              ),
-              RaisedButton(
-                  shape: RoundedRectangleBorder(
+                TextField(
+                  style: GoogleFonts.rambla(color: color1),
+                  cursorColor: Colors.white,
+                  decoration: InputDecoration(
+                    labelText: 'Email ID',
+                    labelStyle: TextStyle(color: Colors.white, fontSize: 13),
+                    contentPadding: const EdgeInsets.all(8.0),
+                    errorBorder: new OutlineInputBorder(
+                      borderSide: new BorderSide(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
                       borderRadius: BorderRadius.circular(12.0),
-
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    errorStyle: TextStyle(
+                      color: color1,
+                    ),
                   ),
-                   elevation: 5.0,
-                        child: Text('Reset password',style:TextStyle(color:Colors.black)),
-                  color: color1,
-                  onPressed: () {
-                      Navigator.of(context).pop(customController.text.toString());
-                    }
+                  autocorrect: false,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: customController,
+                ),
+              ],
+            ),
+            actions: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.1,
                   ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.18,
+                  RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      elevation: 5.0,
+                      child: Text('Reset password',
+                          style: TextStyle(color: Colors.black)),
+                      color: color1,
+                      onPressed: () {
+                        Navigator.of(context).pop(customController.text.toString());
+                      }),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.18,
+                  ),
+                ],
               ),
             ],
-          ),
-
-
-        ],
-      );
-    });
-
+          );
+        });
   }
 
   void sendverification() async {
     await authResult.user.sendEmailVerification();
     print('email sent');
-    ScaffoldMessenger.of(context).showSnackBar(
+    Scaffold.of(context).showSnackBar(
       SnackBar(
         content: const Text(
             'Verification link has been sent \n Please verify to continue '),
@@ -140,22 +137,17 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       await verify();
       if (verified == true) {
         if (authResult.user.uid != null) {
-          await firestoreInstance
-              .collection('users')
-              .doc(authResult.user.uid)
-              .set({
+          await firestoreInstance.collection('users').doc(authResult.user.uid).set({
             'username': _Username,
             'email': _email,
           });
-          Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (context) => LandingPage()));
+          Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LandingPage()));
         }
-
       } else {
         print("Email is not verified");
       }
     });
-
   }
 
   void verify() async {
@@ -166,7 +158,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     await newuser.reload();
     print(newuser.emailVerified);
     print('checking');
-    if( newuser.emailVerified!=null){
+    if (newuser.emailVerified != null) {
       if ((await newuser.emailVerified) == true) {
         setState(() {
           verified = true;
@@ -177,29 +169,30 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   }
 
   void _submit() async {
-    for(var i=0;i<emails.length;i++){
-      if(_email== emails[i][0]){
+    for (var i = 0; i < emails.length; i++) {
+      if (_email == emails[i][0]) {
         try {
           if (_formType == EmailSignInFormType.signIn) {
-            authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
+            authResult = await auth.signInWithEmailAndPassword(
+                email: _email, password: _password);
             print(authResult);
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => LandingPage()));
             print('HomePage called 1');
           }
-          if(_formType == EmailSignInFormType.register){
-            authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
+          if (_formType == EmailSignInFormType.register) {
+            authResult = await auth.createUserWithEmailAndPassword(
+                email: _email, password: _password);
             print(authResult);
             sendverification();
           }
-
         } catch (e) {
           print(e.toString());
           if (e is PlatformException) {
             if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
               hello = e.code;
               print(hello);
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text(
                       'This Email is already registered \n Please go back '),
@@ -207,21 +200,21 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               );
             }
             if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Wrong password'),
                 ),
               );
             }
             if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Wrong password!!!'),
                 ),
               );
             }
             if (e.code == 'ERROR_USER_NOT_FOUND') {
-              ScaffoldMessenger.of(context).showSnackBar(
+              Scaffold.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('No user found!!!'),
                 ),
@@ -231,8 +224,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         }
       }
     }
-
-
   }
 
   void _collectmails() async {
@@ -265,7 +256,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   void forgotpassword(String email) async {
     try {
       await auth.sendPasswordResetEmail(email: email);
-      ScaffoldMessenger.of(context).showSnackBar(
+      Scaffold.of(context).showSnackBar(
         SnackBar(
           content: const Text('Reset email has been sent'),
         ),
@@ -274,7 +265,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       print(e);
       if (e is PlatformException) {
         if (e != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
+          Scaffold.of(context).showSnackBar(
             SnackBar(
               content: const Text('Enter your email'),
             ),
@@ -283,7 +274,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       }
     }
   }
-
 
   void _toggleFormType() {
     setState(() {
@@ -295,11 +285,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     _passwordController.clear();
   }
 
-
   @override
   Widget build(BuildContext context) {
     final primaryText =
-    _formType == EmailSignInFormType.signIn ? 'SIGN IN' : 'SIGN UP';
+        _formType == EmailSignInFormType.signIn ? 'SIGN IN' : 'SIGN UP';
     final secondaryText = _formType == EmailSignInFormType.signIn
         ? 'Need an account? \n         Sign up'
         : 'Have an account? \n         Sign in';
@@ -473,11 +462,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   child: Text('Forgot password?',
                       style: GoogleFonts.rambla(color: color1)),
                   onPressed: () {
-                    createAlertDialog(context).then((onValue){
+                    createAlertDialog(context).then((onValue) {
                       print(onValue);
                       forgotpassword(onValue);
                     });
-
                   },
                 ),
               ],
@@ -486,11 +474,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             height: MediaQuery.of(context).size.width * 0.04,
           ),
           RaisedButton(
-
               child: Text(primaryText),
-            shape: RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
-                  ),
+              ),
               color: color1,
               onPressed: () {
                 if (_formkey.currentState.validate() == true) {
