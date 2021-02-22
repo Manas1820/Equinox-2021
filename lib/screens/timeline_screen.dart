@@ -27,7 +27,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
     print(DateTime.now());
     now = DateTime.now();
     manageTheme();
-    super.initState();
   }
 
   void manageTheme() {
@@ -156,8 +155,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     Positioned(
                       top: screenHeight(context) * 0.5,
                       left: screenWidth(context) * 0.75,
-                      child: SizedBox(
+                      child: AnimatedContainer(
                           height: screenHeight(context) * 0.25,
+                          duration: Duration(seconds: 2),
                           child: isDarkMode ? moonImage : sunImage),
                     ),
                   ],
