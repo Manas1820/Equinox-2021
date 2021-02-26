@@ -62,9 +62,7 @@ class _TimerScreenState extends State<TimerScreen> {
           ),
           child: Stack(
             children: [
-              isDarkMode
-                  ? Image.asset('images/timer_moon.png')
-                  : Image.asset('images/timer_sun.png'),
+              isDarkMode ? timerMoonImage : timerSunImage,
               Padding(
                 padding: EdgeInsets.only(
                     bottom: screenWidth(context) * 0.12,

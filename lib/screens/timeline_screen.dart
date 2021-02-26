@@ -153,22 +153,42 @@ class _TimelineScreenState extends State<TimelineScreen> {
                         ),
                       ],
                     ),
-                    Positioned(
-                      top: screenHeight(context) * 0.5,
-                      left: screenWidth(context) * 0.68,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.arrow_back_ios_rounded,
-                            color: isDarkMode ? Colors.grey : Colors.black54,
+                    isDarkMode
+                        ? Positioned(
+                            top: screenHeight(context) * 0.5,
+                            left: screenWidth(context) * 0.68,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Icon(
+                                  Icons.arrow_back_ios_rounded,
+                                  color: isDarkMode ? Colors.grey : Colors.black54,
+                                ),
+                                SizedBox(
+                                  width: screenWidth(context) * 0.05,
+                                ),
+                                SizedBox(
+                                    height: screenHeight(context) * 0.2,
+                                    child: moonImage),
+                              ],
+                            ),
+                          )
+                        : Positioned(
+                            top: screenHeight(context) * 0.45,
+                            left: screenWidth(context) * 0.65,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Icon(
+                                  Icons.arrow_back_ios_rounded,
+                                  color: isDarkMode ? Colors.grey : Colors.black54,
+                                ),
+                                SizedBox(
+                                    height: screenHeight(context) * 0.3,
+                                    child: sunImage),
+                              ],
+                            ),
                           ),
-                          SizedBox(
-                              height: screenHeight(context) * 0.25,
-                              child: isDarkMode ? moonImage : sunImage),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
