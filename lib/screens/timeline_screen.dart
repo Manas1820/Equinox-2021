@@ -24,6 +24,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   @override
   void initState() {
+    super.initState();
     print(DateTime.now());
     now = DateTime.now();
     manageTheme();
@@ -126,7 +127,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   }
                                   i == 0 ? isFirst = true : isFirst = false;
                                   i++;
-                                  i == tiles.length ? isLast = true : isLast = false;
+                                  i == tiles.length
+                                      ? isLast = true
+                                      : isLast = false;
                                   final tileToAdd = TimelineTileItem(
                                     about: about,
                                     time: time,

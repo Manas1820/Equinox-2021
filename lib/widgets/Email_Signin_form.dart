@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:provider/provider.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 enum EmailSignInFormType { signIn, register }
@@ -49,7 +47,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         builder: (context) {
           return AlertDialog(
             backgroundColor: Colors.black,
-            title: Text("Forgot password?", style: TextStyle(color: Colors.white)),
+            title:
+                Text("Forgot password?", style: TextStyle(color: Colors.white)),
             content: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
@@ -112,7 +111,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                           style: TextStyle(color: Colors.black)),
                       color: color1,
                       onPressed: () {
-                        Navigator.of(context).pop(customController.text.toString());
+                        Navigator.of(context)
+                            .pop(customController.text.toString());
                       }),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.18,
@@ -137,7 +137,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       await verify();
       if (verified == true) {
         if (authResult.user.uid != null) {
-          await firestoreInstance.collection('users').doc(authResult.user.uid).set({
+          await firestoreInstance
+              .collection('users')
+              .doc(authResult.user.uid)
+              .set({
             'username': _Username,
             'email': _email,
           });
