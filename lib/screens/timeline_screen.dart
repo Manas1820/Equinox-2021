@@ -127,9 +127,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   }
                                   i == 0 ? isFirst = true : isFirst = false;
                                   i++;
-                                  i == tiles.length
-                                      ? isLast = true
-                                      : isLast = false;
+                                  i == tiles.length ? isLast = true : isLast = false;
                                   final tileToAdd = TimelineTileItem(
                                     about: about,
                                     time: time,
@@ -155,13 +153,22 @@ class _TimelineScreenState extends State<TimelineScreen> {
                         ),
                       ],
                     ),
-                    Positioned(
+                    AnimatedPositioned(
+                      duration: Duration(milliseconds: 500),
                       top: screenHeight(context) * 0.5,
-                      left: screenWidth(context) * 0.75,
-                      child: AnimatedContainer(
-                          height: screenHeight(context) * 0.25,
-                          duration: Duration(seconds: 2),
-                          child: isDarkMode ? moonImage : sunImage),
+                      left: screenWidth(context) * 0.68,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: isDarkMode ? Colors.grey : Colors.black54,
+                          ),
+                          SizedBox(
+                              height: screenHeight(context) * 0.25,
+                              child: isDarkMode ? moonImage : sunImage),
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -50,8 +50,7 @@ class _TimerScreenState extends State<TimerScreen> {
     return 0;
   }
 
-  bool startTimer() =>
-      DateTime.now().isAfter(DateTime.parse('2021-02-18 22:00:00'));
+  bool startTimer() => DateTime.now().isAfter(DateTime.parse('2021-02-18 22:00:00'));
 
   @override
   Widget build(BuildContext context) {
@@ -59,14 +58,13 @@ class _TimerScreenState extends State<TimerScreen> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            gradient:
-                isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
           ),
           child: Stack(
             children: [
               isDarkMode
-                  ? Image.asset('images/moon_ss.png')
-                  : Image.asset('images/sun_ss.png'),
+                  ? Image.asset('images/timer_moon.png')
+                  : Image.asset('images/timer_sun.png'),
               Padding(
                 padding: EdgeInsets.only(
                     bottom: screenWidth(context) * 0.12,
