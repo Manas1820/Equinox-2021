@@ -1,9 +1,5 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
-import 'package:equinox_21/widgets/indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/constants.dart';
 
@@ -54,7 +50,8 @@ class _TimerScreenState extends State<TimerScreen> {
     return 0;
   }
 
-  bool startTimer() => DateTime.now().isAfter(DateTime.parse('2021-02-18 22:00:00'));
+  bool startTimer() =>
+      DateTime.now().isAfter(DateTime.parse('2021-02-18 22:00:00'));
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +59,8 @@ class _TimerScreenState extends State<TimerScreen> {
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+            gradient:
+                isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
           ),
           child: Stack(
             children: [

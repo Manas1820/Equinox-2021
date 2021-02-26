@@ -1,6 +1,3 @@
-import 'package:equinox_21/constants.dart';
-import 'package:equinox_21/screens/home_screen.dart';
-
 import 'package:equinox_21/screens/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +20,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool isDarkMode = false;
 
-  static const MethodChannel _channel = MethodChannel('testing.com/channel_test');
+  static const MethodChannel _channel =
+      MethodChannel('testing.com/channel_test');
   Map<String, String> channelMap = {
     "id": "id",
     "name": "Show Notifications",
