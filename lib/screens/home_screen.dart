@@ -73,8 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
@@ -90,8 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/team_dark.png',
@@ -123,8 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
@@ -140,8 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',
