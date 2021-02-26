@@ -153,8 +153,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                         ),
                       ],
                     ),
-                    AnimatedPositioned(
-                      duration: Duration(milliseconds: 500),
+                    Positioned(
                       top: screenHeight(context) * 0.5,
                       left: screenWidth(context) * 0.68,
                       child: Row(
@@ -181,6 +180,3 @@ class _TimelineScreenState extends State<TimelineScreen> {
     );
   }
 }
-// Navigator.push(
-// context,
-// MaterialPageRoute(builder: (context) => TimerScreen()),

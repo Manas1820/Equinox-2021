@@ -33,10 +33,8 @@ class _TeamState extends State<Team> {
   }
 
   getData() async {
-    var snap = await FirebaseFirestore.instance
-        .collection('Details')
-        .doc('Bahubali')
-        .get();
+    var snap =
+        await FirebaseFirestore.instance.collection('Details').doc('Bahubali').get();
     setState(() {
       data = snap.data();
       loading = true;
@@ -55,7 +53,6 @@ class _TeamState extends State<Team> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
         home: Scaffold(
             body: loading
                 ? Container(
@@ -99,8 +96,7 @@ class _TeamState extends State<Team> {
                           ),
                           Text(
                             "Bahubali",
-                            style:
-                                showOfflineSubheadingText(context, isDarkMode),
+                            style: showOfflineSubheadingText(context, isDarkMode),
                           ),
                           SizedBox(
                             height: 35,
@@ -112,14 +108,13 @@ class _TeamState extends State<Team> {
                           Flexible(
                               child: ListView.builder(
                                   itemCount: data['teammate'].length,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
+                                  itemBuilder: (BuildContext context, int index) {
                                     return Padding(
                                       padding: textTeamPagePadding(context),
                                       child: Text(
                                         data['teammate'][index].toString(),
-                                        style: teamPageTextStyle(
-                                            context, isDarkMode),
+                                        style:
+                                            teamPageTextStyle(context, isDarkMode),
                                       ),
                                     );
                                   })),
@@ -157,21 +152,18 @@ class _TeamState extends State<Team> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Discord Channel',
                                         style: GoogleFonts.raleway(
                                             color: Color(0xffE1D342),
-                                            fontSize:
-                                                screenWidth(context) * 0.06,
+                                            fontSize: screenWidth(context) * 0.06,
                                             fontWeight: FontWeight.bold),
                                       ),
                                       SizedBox(height: 15),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             'code:',
@@ -179,15 +171,15 @@ class _TeamState extends State<Team> {
                                                 color: isDarkMode
                                                     ? textColorNight
                                                     : textColorDay,
-                                                fontSize: screenWidth(context) *
-                                                    0.045),
+                                                fontSize:
+                                                    screenWidth(context) * 0.045),
                                           ),
                                           Text(
                                             '\t\tXs12Vd',
                                             style: GoogleFonts.raleway(
                                                 color: Color(0xffE1D342),
-                                                fontSize: screenWidth(context) *
-                                                    0.045),
+                                                fontSize:
+                                                    screenWidth(context) * 0.045),
                                           ),
                                         ],
                                       ),
