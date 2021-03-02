@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:equinox_21/screens/home_screen.dart';
 import 'package:equinox_21/screens/landing_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../constants.dart';
 
 enum EmailSignInFormType { signIn, register }
 
@@ -42,6 +45,11 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   UserCredential authResult;
   User newuser;
   bool there = true;
+  bool isDarkMode = false;
+  DateTime now;
+
+
+
 
   Future<String> createAlertDialog(BuildContext context){
     TextEditingController customController =TextEditingController();
@@ -158,7 +166,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
 
   }
-
   void verify() async {
     print(authResult.user.emailVerified);
     print(authResult.user);
@@ -176,7 +183,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       }
     }
   }
-
   void _submit() async {
     for(var i=0;i<emails.length;i++){
       if(_email== emails[i][0]){
@@ -251,7 +257,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
 
 
   }
-
   void _collectmails() async {
     await firestoreInstance.collection("Emails").get().then((querySnapshot) {
       querySnapshot.docs.forEach((result) {
@@ -264,21 +269,19 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       print(emails);
     });
   }
-
   @override
   void initState() {
     _collectmails();
+    manageTheme();
+
     _passwordVisible = false;
   }
-
   void _UsernameEditingComplete() {
     FocusScope.of(context).requestFocus(_emailFocusNode);
   }
-
   void _emailEditingComplete() {
     FocusScope.of(context).requestFocus(_password1FocusNode);
   }
-
   void forgotpassword(String email) async {
     try {
       await auth.sendPasswordResetEmail(email: email);
@@ -300,8 +303,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       }
     }
   }
-
-
   void _toggleFormType() {
     setState(() {
       _formType = _formType == EmailSignInFormType.signIn
@@ -310,6 +311,18 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
     _emailController.clear();
     _passwordController.clear();
+  }
+  void manageTheme() {
+    DateTime now = DateTime.now(); // current time
+    if (now.hour > 18 || now.hour < 6) {
+      setState(() {
+        isDarkMode = true;
+      });
+    } else {
+      setState(() {
+        isDarkMode = false;
+      });
+    }
   }
 
 
@@ -328,8 +341,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         children: [
           if (_formType == EmailSignInFormType.register)
             TextFormField(
-              style: GoogleFonts.rambla(color: color1),
-              cursorColor: Colors.white,
+              style: GoogleFonts.rambla(color:isDarkMode? color1 : darkBackground),
+              cursorColor: isDarkMode? Colors.white : darkBackground,
               key: ValueKey("UserName"),
               validator: (value) {
                 if (value.isEmpty) {
@@ -340,32 +353,32 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               controller: _UsernameController,
               focusNode: _UsernameFocusNode,
               decoration: InputDecoration(
-                labelStyle: TextStyle(color: Colors.white, fontSize: 13),
+                labelStyle: TextStyle(color: isDarkMode? Colors.white : darkBackground, fontSize: 13),
                 contentPadding: const EdgeInsets.all(8.0),
                 errorBorder: new OutlineInputBorder(
                   borderSide: new BorderSide(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white : darkBackground,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white : darkBackground,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: Colors.white,
+                    color: isDarkMode? Colors.white : darkBackground,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 labelText: 'UserName',
                 errorStyle: TextStyle(
-                  color: color1,
+                  color: isDarkMode? color1 : teamPageLightSubheading,
                 ),
               ),
               autocorrect: false,
@@ -377,8 +390,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             height: MediaQuery.of(context).size.width * 0.07,
           ),
           TextFormField(
-            style: GoogleFonts.rambla(color: color1),
-            cursorColor: Colors.white,
+            style: GoogleFonts.rambla(color:isDarkMode? color1 : darkBackground),
+            cursorColor: isDarkMode? Colors.white : darkBackground,
             key: ValueKey("email"),
             validator: (value) {
               if (value.isEmpty || !value.contains('@')) {
@@ -389,32 +402,32 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             controller: _emailController,
             focusNode: _emailFocusNode,
             decoration: InputDecoration(
-              labelStyle: TextStyle(color: Colors.white, fontSize: 13),
+              labelStyle: TextStyle(color:  isDarkMode? Colors.white : darkBackground, fontSize: 13),
               contentPadding: const EdgeInsets.all(8.0),
               errorBorder: new OutlineInputBorder(
                 borderSide: new BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               labelText: 'Email ID',
               errorStyle: TextStyle(
-                color: color1,
+                color: isDarkMode? color1 : teamPageLightSubheading,
               ),
             ),
             autocorrect: false,
@@ -426,8 +439,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             height: MediaQuery.of(context).size.width * 0.07,
           ),
           TextFormField(
-            style: GoogleFonts.rambla(color: color1),
-            cursorColor: Colors.white,
+            style: GoogleFonts.rambla(color:isDarkMode? color1 : darkBackground),
+            cursorColor: isDarkMode? Colors.white : darkBackground,
             key: ValueKey("password1"),
             validator: (value) {
               if (value.isEmpty || value.length < 7) {
@@ -438,36 +451,36 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             decoration: InputDecoration(
               errorBorder: new OutlineInputBorder(
                 borderSide: new BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              labelStyle: TextStyle(color: Colors.white, fontSize: 13),
+              labelStyle: TextStyle(color: isDarkMode? Colors.white : darkBackground, fontSize: 13),
               contentPadding: const EdgeInsets.all(8.0),
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               labelText: 'Password',
               errorStyle: TextStyle(
-                color: color1,
+                color: isDarkMode? color1 : teamPageLightSubheading,
               ),
               suffixIcon: IconButton(
                 icon: Icon(
                   // Based on passwordVisible state choose the icon
                   _passwordVisible ? Icons.visibility : Icons.visibility_off,
-                  color: Colors.white,
+                  color: isDarkMode? Colors.white : darkBackground,
                 ),
                 onPressed: () {
                   // Update the state i.e. toogle the state of passwordVisible variable
@@ -488,7 +501,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               children: [
                 FlatButton(
                   child: Text('Forgot password?',
-                      style: GoogleFonts.rambla(color: color1)),
+                      style: GoogleFonts.rambla(color:  isDarkMode? color1 : darkBackground)),
                   onPressed: () {
                     createAlertDialog(context).then((onValue){
                       print(onValue);
@@ -504,11 +517,11 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           ),
           RaisedButton(
 
-              child: Text(primaryText),
+              child: Text(primaryText,style:TextStyle(color:isDarkMode? darkBackground : Colors.white)),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
                   ),
-              color: color1,
+              color: isDarkMode? color1 : darkBackground,
               onPressed: () {
                 if (_formkey.currentState.validate() == true) {
                   _submit();
@@ -517,7 +530,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           FlatButton(
             child: Text(
               secondaryText,
-              style: GoogleFonts.rambla(color: Colors.white),
+              style: GoogleFonts.rambla(color: isDarkMode? Colors.white: darkBackground),
             ),
             onPressed: _toggleFormType,
           ),
