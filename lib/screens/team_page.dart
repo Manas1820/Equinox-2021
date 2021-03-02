@@ -70,7 +70,7 @@ class _TeamState extends State<Team> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('\tMy Team',
+                          Text('My Team',
                               style: headingTextStyle(context, isDarkMode)),
                           Padding(
                             padding: EdgeInsets.only(
