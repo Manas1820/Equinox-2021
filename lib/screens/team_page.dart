@@ -34,8 +34,10 @@ class _TeamState extends State<Team> {
   }
 
   getData() async {
-    var snap =
-        await FirebaseFirestore.instance.collection('Details').doc('Bahubali').get();
+    var snap = await FirebaseFirestore.instance
+        .collection('Details')
+        .doc('Bahubali')
+        .get();
     setState(() {
       data = snap.data();
       loading = true;
@@ -66,22 +68,27 @@ class _TeamState extends State<Team> {
                         height: screenHeight(context) * 0.05,
                       ),
                       Row(
+                        mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('\tMy Team',
+                          Text('My Team',
                               style: headingTextStyle(context, isDarkMode)),
-                          FlatButton(
-                            child: Text(
-                              "Logout",
-                              style: TextStyle(fontSize: 20.0),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                right: screenWidth(context) * 0.05),
+                            child: FlatButton(
+                              child: Text(
+                                "Logout",
+                                style: TextStyle(fontSize: 20.0),
+                              ),
+                              color: Color(0xffE1D342),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              onPressed: () async {
+                                final _firebaseAuth = FirebaseAuth.instance;
+                                await _firebaseAuth.signOut();
+                              },
                             ),
-                            color: Color(0xffE1D342),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            onPressed: () async {
-                              final _firebaseAuth = FirebaseAuth.instance;
-                              await _firebaseAuth.signOut();
-                            },
                           ),
                         ],
                       ),
@@ -106,6 +113,9 @@ class _TeamState extends State<Team> {
                         "Our Stars",
                         style: teamPageSubheadingStyle(context, isDarkMode),
                       ),
+                      SizedBox(
+                        height: 12,
+                      ),
                       Flexible(
                           child: ListView.builder(
                               itemCount: data['teammate'].length,
@@ -114,7 +124,8 @@ class _TeamState extends State<Team> {
                                   padding: textTeamPagePadding(context),
                                   child: Text(
                                     data['teammate'][index].toString(),
-                                    style: teamPageTextStyle(context, isDarkMode),
+                                    style:
+                                        teamPageTextStyle(context, isDarkMode),
                                   ),
                                 );
                               })),
@@ -126,78 +137,116 @@ class _TeamState extends State<Team> {
                           thickness: 4,
                         ),
                       ),
-                      SizedBox(
-                        height: 18,
-                      ),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Center(
-                                child: FlatButton(
-                                  child: Image.asset(
-                                    'images/discord.png',
-                                    height: 58,
-                                    width: 58,
-                                  ),
-                                  onPressed: () {
-                                    launch('https://discord.com/invite/EfV4kK3Bgu');
-                                  },
-                                ),
-                              ),
-                            ],
+                      ListTile(
+                        leading: FlatButton(
+                          child: Image.asset(
+                            'images/discord.png',
+                            height: 58,
+                            width: 58,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Discord Channel',
-                                    style: GoogleFonts.raleway(
-                                        color: Color(0xffE1D342),
-                                        fontSize: screenWidth(context) * 0.06,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(height: 15),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'code:',
-                                        style: GoogleFonts.raleway(
-                                            color: isDarkMode
-                                                ? textColorNight
-                                                : textColorDay,
-                                            fontSize: screenWidth(context) * 0.045),
-                                      ),
-                                      Text(
-                                        '\t\tXs12Vd',
-                                        style: GoogleFonts.raleway(
-                                            color: Color(0xffE1D342),
-                                            fontSize: screenWidth(context) * 0.045),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
+                          onPressed: () async {
+                            await launch(
+                                'https://discord.com/invite/EfV4kK3Bgu');
+                          },
+                        ),
+                        title: Text(
+                          'Discord Channel',
+                          style: GoogleFonts.raleway(
+                              color: Color(0xffE1D342),
+                              fontSize: screenWidth(context) * 0.06,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'code:',
+                              style: GoogleFonts.raleway(
+                                  color: isDarkMode
+                                      ? textColorNight
+                                      : textColorDay,
+                                  fontSize: screenWidth(context) * 0.045),
+                            ),
+                            Text(
+                              '\t\tXs12Vd',
+                              style: GoogleFonts.raleway(
+                                  color: Color(0xffE1D342),
+                                  fontSize: screenWidth(context) * 0.045),
+                            ),
+                          ],
+                        ),
                       ),
+                      // Column(
+                      //   children: [
+                      //     Row(
+                      //       children: [
+                      //         Center(
+                      //           child: FlatButton(
+                      //             child: Image.asset(
+                      //               'images/discord.png',
+                      //               height: 58,
+                      //               width: 58,
+                      //             ),
+                      //             onPressed: () {
+                      //               launch('https://discord.com/invite/EfV4kK3Bgu');
+                      //             },
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //     Row(
+                      //       mainAxisAlignment: MainAxisAlignment.center,
+                      //       children: [
+                      //         Column(
+                      //           crossAxisAlignment: CrossAxisAlignment.start,
+                      //           children: [
+                      //             Text(
+                      //               'Discord Channel',
+                      //               style: GoogleFonts.raleway(
+                      //                   color: Color(0xffE1D342),
+                      //                   fontSize: screenWidth(context) * 0.06,
+                      //                   fontWeight: FontWeight.bold),
+                      //             ),
+                      //             SizedBox(height: 15),
+                      //             Row(
+                      //               mainAxisAlignment: MainAxisAlignment.center,
+                      //               children: [
+                      //                 Text(
+                      //                   'code:',
+                      //                   style: GoogleFonts.raleway(
+                      //                       color: isDarkMode
+                      //                           ? textColorNight
+                      //                           : textColorDay,
+                      //                       fontSize: screenWidth(context) * 0.045),
+                      //                 ),
+                      //                 Text(
+                      //                   '\t\tXs12Vd',
+                      //                   style: GoogleFonts.raleway(
+                      //                       color: Color(0xffE1D342),
+                      //                       fontSize: screenWidth(context) * 0.045),
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ],
+                      // ),
                       SizedBox(height: 35),
                     ],
                   ),
                 ),
                 decoration: BoxDecoration(
-                  gradient:
-                      isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+                  gradient: isDarkMode
+                      ? darkBackgroundGradient
+                      : lightBackgroundGradient,
                 ))
             : Container(
                 decoration: BoxDecoration(
-                  gradient:
-                      isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+                  gradient: isDarkMode
+                      ? darkBackgroundGradient
+                      : lightBackgroundGradient,
                 ),
                 child: Center(
                     child: CircularProgressIndicator(

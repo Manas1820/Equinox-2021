@@ -2,8 +2,37 @@ import 'package:equinox_21/widgets/Email_Signin_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
 
-class EmailSigninPage extends StatelessWidget {
+
+class EmailSigninPage extends StatefulWidget {
+  @override
+  _EmailSigninPageState createState() => _EmailSigninPageState();
+}
+
+
+class _EmailSigninPageState extends State<EmailSigninPage> {
+  bool isDarkMode = false;
+  DateTime now;
+  @override
+  void initState() {
+    manageTheme();
+    super.initState();
+  }
+
+  void manageTheme() {
+    DateTime now = DateTime.now(); // current time
+    if (now.hour > 18 || now.hour < 6) {
+      setState(() {
+        isDarkMode = true;
+      });
+    } else {
+      setState(() {
+        isDarkMode = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     const color = const Color(0xff0E1C36);
@@ -16,8 +45,7 @@ class EmailSigninPage extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: [
-
-                Image(image: AssetImage('images/logo.png'),
+                Image(image: isDarkMode ? AssetImage('images/logo.png', ): AssetImage('images/Logo-2.png' ),
                   width: MediaQuery.of(context).size.width*0.7,
                   height: MediaQuery.of(context).size.width*0.7,
                 ),
@@ -34,7 +62,7 @@ class EmailSigninPage extends StatelessWidget {
               ],
             )),
         ),
-      backgroundColor: color,
+      backgroundColor: isDarkMode ? darkBackground : lightBackground,
     );
   }
 }
