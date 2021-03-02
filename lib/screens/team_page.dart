@@ -68,6 +68,7 @@ class _TeamState extends State<Team> {
                         height: screenHeight(context) * 0.05,
                       ),
                       Row(
+                        mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('My Team',
