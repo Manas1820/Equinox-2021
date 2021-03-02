@@ -1,9 +1,5 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
-import 'package:equinox_21/widgets/indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/constants.dart';
 
@@ -22,6 +18,7 @@ class _TimerScreenState extends State<TimerScreen> {
     now = DateTime.now();
     manageTheme();
     startTimer();
+    print(remainingTime());
     super.initState();
   }
 
@@ -41,14 +38,14 @@ class _TimerScreenState extends State<TimerScreen> {
 
   int remainingTime() {
     var secondsLeftNow = (24 * 60 * 60) - secondsNow();
-    if (DateTime.now().day == 20) {
+    if (DateTime.now().day == 21) {
       return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 21) {
+    if (DateTime.now().day == 22) {
       return secondsLeftNow + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 22) {
-      return (10 * 60 * 60) - secondsLeftNow;
+    if (DateTime.now().day == 23) {
+      return (10 * 60 * 60) - secondsNow();
     }
     return 0;
   }
@@ -65,9 +62,7 @@ class _TimerScreenState extends State<TimerScreen> {
           ),
           child: Stack(
             children: [
-              isDarkMode
-                  ? Image.asset('images/moon_ss.png')
-                  : Image.asset('images/sun_ss.png'),
+              isDarkMode ? timerMoonImage : timerSunImage,
               Padding(
                 padding: EdgeInsets.only(
                     bottom: screenWidth(context) * 0.12,

@@ -64,25 +64,12 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
                   isClicked = !isClicked;
                 });
               },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.title,
-                      style: textStyle(context, widget.isDarkMode, isClicked),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: Icon(
-                      isClicked
-                          ? Icons.keyboard_arrow_up_rounded
-                          : Icons.keyboard_arrow_down_rounded,
-                      color: dropDownColor,
-                    ),
-                  ),
-                ],
+              child: Padding(
+                padding: EdgeInsets.only(right: screenWidth(context) * 0.1),
+                child: Text(
+                  widget.title,
+                  style: textStyle(context, widget.isDarkMode, isClicked),
+                ),
               ),
             ),
             isClicked == true
@@ -95,19 +82,23 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
         ),
       ),
       startChild: widget.day != null
-          ? Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  widget.day,
-                  style: dayNumberTextStyle(context, widget.isDarkMode),
-                ),
-                Text(
-                  widget.time,
-                  textAlign: TextAlign.center,
-                  style: textStyle(context, widget.isDarkMode, false),
-                ),
-              ],
+          ? Padding(
+              padding: EdgeInsets.only(right: 16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  SizedBox(height: screenHeight(context) * 0.02),
+                  Text(
+                    widget.day,
+                    style: dayNumberTextStyle(context, widget.isDarkMode),
+                  ),
+                  Text(
+                    widget.time,
+                    textAlign: TextAlign.center,
+                    style: textStyle(context, widget.isDarkMode, false),
+                  ),
+                ],
+              ),
             )
           : Text(
               widget.time,

@@ -49,8 +49,8 @@ Widget earthImageNight = Image.asset('images/earth_night.png');
 Widget earthImageDay = Image.asset('images/earth_day.png');
 Widget timerSunImage = Image.asset('images/timer_sun.png');
 Widget timerMoonImage = Image.asset('images/timer_moon.png');
-Widget moonImage = Image.asset('images/moon_white.png');
-Widget sunImage = Image.asset('images/sun.png');
+Widget moonImage = Image.asset('images/moon_full.png');
+Widget sunImage = Image.asset('images/sun_full.png');
 
 double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 double screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
@@ -159,16 +159,14 @@ TextStyle aboutusCardHeadingTextStyle(BuildContext context, bool isDarkMode) =>
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserHeadingTextStyle(
-        BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserHeadingTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,
       fontWeight: FontWeight.bold,
     );
 
-TextStyle aboutusOrganiserNameTextStyle(
-        BuildContext context, bool isDarkMode) =>
+TextStyle aboutusOrganiserNameTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,
       fontSize: screenWidth(context) * 0.042,

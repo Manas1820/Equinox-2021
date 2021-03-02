@@ -1,10 +1,10 @@
-
 import 'package:equinox_21/screens/landing_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +18,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const MethodChannel _channel = MethodChannel('testing.com/channel_test');
+  bool isDarkMode = false;
+
+  static const MethodChannel _channel =
+      MethodChannel('testing.com/channel_test');
   Map<String, String> channelMap = {
     "id": "id",
     "name": "Show Notifications",
@@ -34,14 +37,30 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  void manageTheme() {
+    DateTime now = DateTime.now(); // current time
+    print(now.hour);
+    if (now.hour > 18 || now.hour < 6) {
+      setState(() {
+        isDarkMode = true;
+      });
+    } else {
+      setState(() {
+        isDarkMode = false;
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     _createNewChannel();
+    manageTheme();
   }
 
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xff091324));
     return ConnectivityAppWrapper(
       app: MaterialApp(
         debugShowCheckedModeBanner: false,
