@@ -44,7 +44,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   bool verified = false;
   UserCredential authResult;
   User newuser;
-  bool there = true;
+  bool there = false;
   bool isDarkMode = false;
   DateTime now;
 
@@ -235,10 +235,9 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             }
           }
         }
-      }else{
-        print("there = false");
         setState(() {
-          there =false;
+          there = true;
+          print("true");
         });
       }
     }
@@ -249,10 +248,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           content: const Text('Email not registered under Devfolio'),
         ),
       );
-      setState(() {
-        there = true;
-        print("there = true");
-      });
+
     }
 
 
