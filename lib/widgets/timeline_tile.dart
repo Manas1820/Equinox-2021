@@ -64,12 +64,25 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
                   isClicked = !isClicked;
                 });
               },
-              child: Padding(
-                padding: EdgeInsets.only(right: screenWidth(context) * 0.1),
-                child: Text(
-                  widget.title,
-                  style: textStyle(context, widget.isDarkMode, isClicked),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      widget.title,
+                      style: textStyle(context, widget.isDarkMode, isClicked),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 16.0),
+                    child: Icon(
+                      isClicked
+                          ? Icons.keyboard_arrow_up_rounded
+                          : Icons.keyboard_arrow_down_rounded,
+                      color: dropDownColor,
+                    ),
+                  ),
+                ],
               ),
             ),
             isClicked == true
