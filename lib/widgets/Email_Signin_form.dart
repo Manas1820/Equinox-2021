@@ -183,7 +183,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     }
   }
   void _submit() async {
-
     try {
       if (_formType == EmailSignInFormType.signIn) {
         authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
@@ -202,6 +201,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
             print(authResult);
             sendverification();
+            setState(() {
+              There = false;
+              print("reset to false");
+            });
           }
         }
         if(There == false){
@@ -226,6 +229,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   'This Email is already registered \n Please Sign In '),
             ),
           );
+          setState(() {
+            There = false;
+            print("reset to false");
+          });
         }
         if (e.code == 'wrong-password') {
           print('Wrong pin');
