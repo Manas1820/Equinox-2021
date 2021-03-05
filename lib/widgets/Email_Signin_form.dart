@@ -183,72 +183,69 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     }
   }
   void _submit() async {
-    for(var i=0;i<emails.length;i++){
-      if(_email== emails[i][0]){
-        try {
-          if (_formType == EmailSignInFormType.signIn) {
-            authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-            print(authResult);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LandingPage()));
-            print('HomePage called 1');
-          }
-          if(_formType == EmailSignInFormType.register){
+
+    try {
+      if (_formType == EmailSignInFormType.signIn) {
+        authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
+        print(authResult);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => LandingPage()));
+        print('HomePage called 1');
+      }
+      if(_formType == EmailSignInFormType.register){
+        for(var i=0;i<emails.length;i++){
+          if(_email== emails[i][0]){
+            setState(() {
+              There = true;
+              print("true");
+            });
             authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
             print(authResult);
             sendverification();
           }
-        } catch (e) {
-          print(e.toString());
-          if (e is PlatformException) {
-            if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
-              hello = e.code;
-              print(hello);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text(
-                      'This Email is already registered \n Please go back '),
-                ),
-              );
-            }
-            if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('Wrong password'),
-                ),
-              );
-            }
-            if (e.code == 'ERROR_WRONG_PASSWORD') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('Wrong password!!!'),
-                ),
-              );
-            }
-            if (e.code == 'ERROR_USER_NOT_FOUND') {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('No user found!!!'),
-                ),
-              );
-            }
-          }
         }
-        setState(() {
-          There = true;
-          print("true");
-        });
+        if(There == false){
+          print("entered");
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('Email not registered under Devfolio'),
+            ),
+          );
+
+        }
       }
-    }
-    if(There == false){
-      print("entered");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Email not registered under Devfolio'),
-        ),
-      );
+    } catch (e) {
+      print(e.toString());
+      print(e.code);
+        if (e.code == 'email-already-in-use') {
+          hello = e.code;
+          print(hello);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text(
+                  'This Email is already registered \n Please Sign In '),
+            ),
+          );
+        }
+        if (e.code == 'wrong-password') {
+          print('Wrong pin');
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('Wrong password'),
+            ),
+          );
+        }
+        if (e.code == 'user-not-found') {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('Wrong Email ID'),
+            ),
+          );
+        }
 
     }
+
+
 
 
   }
