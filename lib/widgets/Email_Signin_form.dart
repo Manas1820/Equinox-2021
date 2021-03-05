@@ -44,7 +44,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   bool verified = false;
   UserCredential authResult;
   User newuser;
-  bool there = false;
+  bool There = false;
   bool isDarkMode = false;
   DateTime now;
 
@@ -135,7 +135,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
 
   }
-
   void sendverification() async {
     await authResult.user.sendEmailVerification();
     print('email sent');
@@ -236,12 +235,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           }
         }
         setState(() {
-          there = true;
+          There = true;
           print("true");
         });
       }
     }
-    if(there == false){
+    if(There == false){
       print("entered");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -365,6 +364,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   ),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
+                focusedErrorBorder: new OutlineInputBorder(
+                  borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: isDarkMode? Colors.white : darkBackground,
@@ -414,6 +417,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
+              focusedErrorBorder: new OutlineInputBorder(
+                borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: isDarkMode? Colors.white : darkBackground,
@@ -459,6 +466,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              focusedErrorBorder: new OutlineInputBorder(
+                borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               enabledBorder: OutlineInputBorder(
