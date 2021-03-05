@@ -211,7 +211,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
           print("entered");
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: const Text('Email not registered under Devfolio'),
+              content: const Text('Email not registered under Devfolio\nor\nInvalid Email ID'),
             ),
           );
 
