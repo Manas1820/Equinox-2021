@@ -456,6 +456,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               return null;
             },
             decoration: InputDecoration(
+              alignLabelWithHint: true,
               errorBorder: new OutlineInputBorder(
                 borderSide: new BorderSide(
                   color: isDarkMode? Colors.white : darkBackground,
