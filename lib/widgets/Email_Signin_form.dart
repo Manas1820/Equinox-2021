@@ -1,16 +1,11 @@
 import 'dart:async';
-import 'package:equinox_21/screens/home_screen.dart';
 import 'package:equinox_21/screens/landing_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:provider/provider.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../constants.dart';
+import 'package:equinox_21/constants.dart';
 
 enum EmailSignInFormType { signIn, register }
 
@@ -138,7 +133,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   void sendverification() async {
     await authResult.user.sendEmailVerification();
     print('email sent');
-    ScaffoldMessenger.of(context).showSnackBar(
+    Scaffold.of(context).showSnackBar(
       SnackBar(
         content: const Text(
             'Verification link has been sent \n Please verify to continue '),
@@ -201,10 +196,41 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
             print(authResult);
             sendverification();
-            setState(() {
-              There = false;
-              print("reset to false");
-            });
+          }
+        } catch (e) {
+          print(e.toString());
+          if (e is PlatformException) {
+            if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+              hello = e.code;
+              print(hello);
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text(
+                      'This Email is already registered \n Please go back '),
+                ),
+              );
+            }
+            if (e.code == 'ERROR_WRONG_PASSWORD') {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text('Wrong password'),
+                ),
+              );
+            }
+            if (e.code == 'ERROR_WRONG_PASSWORD') {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text('Wrong password!!!'),
+                ),
+              );
+            }
+            if (e.code == 'ERROR_USER_NOT_FOUND') {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text('No user found!!!'),
+                ),
+              );
+            }
           }
         }
         if(There == false){
@@ -217,38 +243,14 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
 
         }
       }
-    } catch (e) {
-      print(e.toString());
-      print(e.code);
-        if (e.code == 'email-already-in-use') {
-          hello = e.code;
-          print(hello);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text(
-                  'This Email is already registered \n Please Sign In '),
-            ),
-          );
-          setState(() {
-            There = false;
-            print("reset to false");
-          });
-        }
-        if (e.code == 'wrong-password') {
-          print('Wrong pin');
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text('Wrong password'),
-            ),
-          );
-        }
-        if (e.code == 'user-not-found') {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text('Wrong Email ID'),
-            ),
-          );
-        }
+    }
+    if(there == false){
+      print("entered");
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Email not registered under Devfolio'),
+        ),
+      );
 
     }
 
@@ -284,7 +286,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   void forgotpassword(String email) async {
     try {
       await auth.sendPasswordResetEmail(email: email);
-      ScaffoldMessenger.of(context).showSnackBar(
+      Scaffold.of(context).showSnackBar(
         SnackBar(
           content: const Text('Reset email has been sent'),
         ),
@@ -293,7 +295,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       print(e);
       if (e is PlatformException) {
         if (e != null) {
-          ScaffoldMessenger.of(context).showSnackBar(
+          Scaffold.of(context).showSnackBar(
             SnackBar(
               content: const Text('Enter your email'),
             ),
