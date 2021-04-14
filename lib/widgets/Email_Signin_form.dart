@@ -39,7 +39,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
   bool verified = false;
   UserCredential authResult;
   User newuser;
-  bool there = false;
+  bool There = false;
   bool isDarkMode = false;
   DateTime now;
 
@@ -130,7 +130,6 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     });
 
   }
-
   void sendverification() async {
     await authResult.user.sendEmailVerification();
     print('email sent');
@@ -179,17 +178,21 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     }
   }
   void _submit() async {
-    for(var i=0;i<emails.length;i++){
-      if(_email== emails[i][0]){
-        try {
-          if (_formType == EmailSignInFormType.signIn) {
-            authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-            print(authResult);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LandingPage()));
-            print('HomePage called 1');
-          }
-          if(_formType == EmailSignInFormType.register){
+    try {
+      if (_formType == EmailSignInFormType.signIn) {
+        authResult = await auth.signInWithEmailAndPassword(email: _email, password: _password);
+        print(authResult);
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => LandingPage()));
+        print('HomePage called 1');
+      }
+      if(_formType == EmailSignInFormType.register){
+        for(var i=0;i<emails.length;i++){
+          if(_email== emails[i][0]){
+            setState(() {
+              There = true;
+              print("true");
+            });
             authResult = await auth.createUserWithEmailAndPassword(email:_email,password: _password);
             print(authResult);
             sendverification();
@@ -230,10 +233,15 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
             }
           }
         }
-        setState(() {
-          there = true;
-          print("true");
-        });
+        if(There == false){
+          print("entered");
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('Email not registered under Devfolio\nor\nInvalid Email ID'),
+            ),
+          );
+
+        }
       }
     }
     if(there == false){
@@ -245,6 +253,8 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       );
 
     }
+
+
 
 
   }
@@ -360,6 +370,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   ),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
+                focusedErrorBorder: new OutlineInputBorder(
+                  borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: isDarkMode? Colors.white : darkBackground,
@@ -409,6 +423,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                 ),
                 borderRadius: BorderRadius.circular(12.0),
               ),
+              focusedErrorBorder: new OutlineInputBorder(
+                borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: isDarkMode? Colors.white : darkBackground,
@@ -440,6 +458,7 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
               return null;
             },
             decoration: InputDecoration(
+              alignLabelWithHint: true,
               errorBorder: new OutlineInputBorder(
                 borderSide: new BorderSide(
                   color: isDarkMode? Colors.white : darkBackground,
@@ -454,6 +473,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
                   color: isDarkMode? Colors.white : darkBackground,
                   width: 2.0,
                 ),
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              focusedErrorBorder: new OutlineInputBorder(
+                borderSide: new BorderSide(color: isDarkMode? Colors.white : darkBackground, width: 2.0),
                 borderRadius: BorderRadius.circular(12.0),
               ),
               enabledBorder: OutlineInputBorder(
