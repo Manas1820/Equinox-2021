@@ -113,39 +113,6 @@ class _AboutusState extends State<Aboutus> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0)),
-                        elevation: 10,
-                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text('Sponsors',
-                                  style: aboutusCardHeadingTextStyle(
-                                      context, isDarkMode)),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Center(
-                                child: Image.asset(
-                                  'images/image 89.png',
-                                ),
-                              ),
-                              SizedBox(
-                                height: 35,
-                              ),
-                            ],
-                          ),
-                        )),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                       elevation: 10,
@@ -166,7 +133,7 @@ class _AboutusState extends State<Aboutus> {
                             ),
                             Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: screenWidth(context) * 0.05),
+                                  horizontal: screenWidth(context) * 0.06),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -178,6 +145,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_ai_ds.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -192,6 +162,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_ar_vr.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -224,6 +197,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_blockchain.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -241,6 +217,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_defence.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -273,6 +252,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_health.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -287,6 +269,9 @@ class _AboutusState extends State<Aboutus> {
                                         children: [
                                           Image.asset(
                                             'images/tracks_robotics.png',
+                                            color: isDarkMode
+                                                ? Colors.white
+                                                : Colors.black,
                                             height: screenHeight(context) * 0.12,
                                           ),
                                           SizedBox(
@@ -312,6 +297,8 @@ class _AboutusState extends State<Aboutus> {
                                     children: [
                                       Image.asset(
                                         'images/tracks_open.png',
+                                        color:
+                                            isDarkMode ? Colors.white : Colors.black,
                                         height: screenHeight(context) * 0.12,
                                       ),
                                       SizedBox(
