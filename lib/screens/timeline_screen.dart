@@ -71,7 +71,14 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             fontSize: screenWidth(context) * 0.1,
                           ),
                         ),
-                        SizedBox(height: screenHeight(context) * 0.01),
+                        Text(
+                          '\t\t\t\t(All times are in IST)',
+                          style: GoogleFonts.raleway(
+                            color: isDarkMode ? textColorNight : textColorDay,
+                            fontSize: screenWidth(context) * 0.05,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight(context) * 0.02),
                         Expanded(
                           child: StreamBuilder<QuerySnapshot>(
                               stream: _firestore
