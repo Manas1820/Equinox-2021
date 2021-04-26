@@ -1,5 +1,6 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:equinox_21/constants.dart';
+import 'package:equinox_21/screens/codeofconduct.dart';
 import 'package:equinox_21/screens/faq.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
 import 'package:equinox_21/widgets/showOffline.dart';
@@ -19,14 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
     TimelineScreen(),
-    Container(
-      child: Center(
-        child: Text(
-          'Code of Conduct',
-          style: GoogleFonts.raleway(fontSize: 40.0, color: Colors.red),
-        ),
-      ),
-    ),
+    CodeOfConduct(),
     Faq(),
     Aboutus(),
   ];
@@ -69,7 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.shifting,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/timeline_dark.png',
@@ -85,7 +80,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/aboutUs_dark.png',
@@ -101,7 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor:
+                isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
                     'images/faq_dark.png',
