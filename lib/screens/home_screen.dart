@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: screenHeight(context) * 0.035,
                   ),
             title: Text(
-              'Code of Conduct',
+              "Hacker's Guide",
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
