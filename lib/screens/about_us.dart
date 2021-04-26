@@ -1,4 +1,5 @@
 import 'package:equinox_21/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Aboutus extends StatefulWidget {
@@ -145,81 +146,189 @@ class _AboutusState extends State<Aboutus> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0)),
-                        elevation: 10,
-                        color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text('Tracks',
-                                  style: aboutusCardHeadingTextStyle(
-                                      context, isDarkMode)),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Column(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      elevation: 10,
+                      color: isDarkMode ? tileBackgroundDark : tileBackgroundLight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text('Tracks',
+                                style: aboutusCardHeadingTextStyle(
+                                    context, isDarkMode)),
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth(context) * 0.05),
+                              child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Center(
-                                      child: Image.asset(
-                                    'images/Group 30.png',
-                                  )),
-                                  SizedBox(
-                                    height: 15,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_ai_ds.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 25,
+                                          ),
+                                          Text('AI & DS',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_ar_vr.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text('AR & VR',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  Text('Open Innovation',
-                                      style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
                                 ],
                               ),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              Column(
+                            ),
+                            SizedBox(
+                              height: screenHeight(context) * 0.05,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth(context) * 0.05),
+                              child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Center(
-                                      child: Image.asset(
-                                    'images/Group 30.png',
-                                  )),
-                                  SizedBox(
-                                    height: 15,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_blockchain.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text('Blockchain',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_defence.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text('Defence',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  Text('Fintech',
-                                      style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
                                 ],
                               ),
-                              SizedBox(
-                                height: 25,
-                              ),
-                              Column(
+                            ),
+                            SizedBox(
+                              height: screenHeight(context) * 0.05,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth(context) * 0.05),
+                              child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Center(
-                                      child: Image.asset(
-                                    'images/Group 30.png',
-                                  )),
-                                  SizedBox(
-                                    height: 15,
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_health.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text('\t\tHealth\n & Safety',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Image.asset(
+                                            'images/tracks_robotics.png',
+                                            height: screenHeight(context) * 0.12,
+                                          ),
+                                          SizedBox(
+                                            height: 15,
+                                          ),
+                                          Text('Robotics',
+                                              style: aboutusCardTracksTextStyle(
+                                                  context, isDarkMode)),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  Text('Healthcare',
-                                      style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
                                 ],
                               ),
-                              SizedBox(
-                                height: 35,
+                            ),
+                            SizedBox(
+                              height: screenHeight(context) * 0.05,
+                            ),
+                            Center(
+                              child: Column(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Image.asset(
+                                        'images/tracks_open.png',
+                                        height: screenHeight(context) * 0.12,
+                                      ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
+                                      Text('Open Innovation',
+                                          style: aboutusCardTracksTextStyle(
+                                              context, isDarkMode)),
+                                    ],
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        )),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
