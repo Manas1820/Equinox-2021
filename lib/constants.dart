@@ -173,6 +173,12 @@ TextStyle aboutusOrganiserNameTextStyle(BuildContext context, bool isDarkMode) =
       fontWeight: FontWeight.bold,
     );
 
+TextStyle aboutusCardTracksTextStyle(BuildContext context, bool isDarkMode) =>
+    GoogleFonts.raleway(
+      color: isDarkMode ? textColorNight : textColorDay,
+      fontSize: screenWidth(context) * 0.052,
+    );
+
 TextStyle teamPageTextStyle(BuildContext context, bool isDarkMode) =>
     GoogleFonts.raleway(
       color: isDarkMode ? textColorNight : textColorDay,

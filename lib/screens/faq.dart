@@ -337,7 +337,7 @@ class _FaqState extends State<Faq> {
                           padding: const EdgeInsets.all(8.0),
                           child: ListTile(
                               title: Text(
-                                  "You have till 25th March, 2021, 23:59 IST to register yourself for the blast off to the best 36 hours of hacking you will ever have.",
+                                  "You have till 30th March, 2021, 23:59 IST to register yourself for the blast off to the best 36 hours of hacking you will ever have.",
                                   style: faqTileSubheadingTextStyle(
                                       context, isDarkMode))),
                         ),

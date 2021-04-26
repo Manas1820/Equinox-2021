@@ -9,6 +9,9 @@ import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   runApp(MyApp());
 }
 
@@ -20,8 +23,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool isDarkMode = false;
 
-  static const MethodChannel _channel =
-      MethodChannel('testing.com/channel_test');
+  static const MethodChannel _channel = MethodChannel('testing.com/channel_test');
   Map<String, String> channelMap = {
     "id": "id",
     "name": "Show Notifications",
