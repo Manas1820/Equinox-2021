@@ -2,14 +2,14 @@ import 'package:equinox_21/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class CodeOfConduct extends StatefulWidget {
-  const CodeOfConduct({Key key}) : super(key: key);
+class HackersGuide extends StatefulWidget {
+  const HackersGuide({Key key}) : super(key: key);
 
   @override
-  _CodeOfConductState createState() => _CodeOfConductState();
+  _HackersGuideState createState() => _HackersGuideState();
 }
 
-class _CodeOfConductState extends State<CodeOfConduct> {
+class _HackersGuideState extends State<HackersGuide> {
   bool isDarkMode = false;
   @override
   void initState() {
@@ -45,15 +45,24 @@ class _CodeOfConductState extends State<CodeOfConduct> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Card Carousel App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-          appBar: AppBar(title: Text("Flutter Card Carousel")),
-          body: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+              gradient:
+                  isDarkMode ? darkBackgroundGradient : lightBackgroundGradient),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: screenWidth(context) * 0.06,
+                      top: screenHeight(context) * 0.04),
+                  child: Text("Hacker's Guide",
+                      style: headingTextStyle(context, isDarkMode)),
+                ),
+              ),
               CarouselSlider(
                 options: CarouselOptions(
                   height: screenHeight(context) * 0.7,
@@ -88,19 +97,19 @@ class _CodeOfConductState extends State<CodeOfConduct> {
                   return Container(
                     width: 10.0,
                     height: 10.0,
-                    margin:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                    margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _currentIndex == index
-                          ? Colors.blueAccent
-                          : Colors.grey,
+                      color:
+                          _currentIndex == index ? Colors.blueAccent : Colors.grey,
                     ),
                   );
                 }),
               ),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
