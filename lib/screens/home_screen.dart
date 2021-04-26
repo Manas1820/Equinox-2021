@@ -18,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
-    Aboutus(),
     TimelineScreen(),
     Container(
       child: Center(
@@ -29,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
     Faq(),
-    //Aboutus(),
+    Aboutus(),
   ];
 
   @override
