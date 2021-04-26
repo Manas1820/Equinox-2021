@@ -35,22 +35,25 @@ class _FaqState extends State<Faq> {
       body: Container(
           child: ListView(
             children: [
-              SizedBox(
-                height: 45,
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('Have A Question ?',
-                        style: headingTextStyle(context, isDarkMode)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text('we got you covered',
-                        style: headingSubTextStyle(context, isDarkMode)),
-                  ),
-                ],
+              Padding(
+                padding: EdgeInsets.only(
+                    top: screenHeight(context) * 0.04,
+                    left: screenWidth(context) * 0.05),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Have A Question ?',
+                          style: headingTextStyle(context, isDarkMode)),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('We got you covered',
+                          style: headingSubTextStyle(context, isDarkMode)),
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: expantionTilePaddingFaq(context),
@@ -86,8 +89,7 @@ class _FaqState extends State<Faq> {
                   child: ExpansionTile(
                     backgroundColor:
                         isDarkMode ? tileBackgroundDark : tileBackgroundLight,
-                    title: Text(
-                        "What are the perks of participating in Equinox?",
+                    title: Text("What are the perks of participating in Equinox?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
                       Center(
@@ -111,8 +113,7 @@ class _FaqState extends State<Faq> {
                   child: ExpansionTile(
                     backgroundColor:
                         isDarkMode ? tileBackgroundDark : tileBackgroundLight,
-                    title: Text(
-                        "Can I start working on the hack before the event?",
+                    title: Text("Can I start working on the hack before the event?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
                       Center(
@@ -373,8 +374,7 @@ class _FaqState extends State<Faq> {
             ],
           ),
           decoration: BoxDecoration(
-            gradient:
-                isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
+            gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
           )),
     );
   }

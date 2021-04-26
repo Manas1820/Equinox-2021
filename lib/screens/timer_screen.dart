@@ -38,14 +38,19 @@ class _TimerScreenState extends State<TimerScreen> {
 
   int remainingTime() {
     var secondsLeftNow = (24 * 60 * 60) - secondsNow();
-    if (DateTime.now().day == 21) {
-      return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
+    if (DateTime.now().day == 30) {
+      if (DateTime.now().hour >= 20) {
+        return secondsLeftNow + (24 * 60 * 60) + (10 * 60 * 60);
+      }
     }
-    if (DateTime.now().day == 22) {
+    if (DateTime.now().day == 1) {
       return secondsLeftNow + (10 * 60 * 60);
     }
-    if (DateTime.now().day == 23) {
-      return (10 * 60 * 60) - secondsNow();
+    if (DateTime.now().day == 2) {
+      if (((10 * 60 * 60) - secondsNow()) > 0) {
+        return (10 * 60 * 60) - secondsNow();
+      } else
+        return 0;
     }
     return 0;
   }

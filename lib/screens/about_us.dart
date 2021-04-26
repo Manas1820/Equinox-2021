@@ -36,12 +36,11 @@ class _AboutusState extends State<Aboutus> {
       home: Scaffold(
         body: Container(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.only(
+                  top: screenHeight(context) * 0.04,
+                  left: screenWidth(context) * 0.01),
               child: ListView(
                 children: [
-                  SizedBox(
-                    height: 45,
-                  ),
                   Text('\t\tAbout us', style: headingTextStyle(context, isDarkMode)),
                   SizedBox(
                     height: 15,
@@ -158,7 +157,7 @@ class _AboutusState extends State<Aboutus> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Text('Organisers',
+                              Text('Tracks',
                                   style: aboutusCardHeadingTextStyle(
                                       context, isDarkMode)),
                               SizedBox(
@@ -174,14 +173,8 @@ class _AboutusState extends State<Aboutus> {
                                   SizedBox(
                                     height: 15,
                                   ),
-                                  Text('Full Name',
+                                  Text('Open Innovation',
                                       style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text('"A line by the oragniser"',
-                                      style: aboutusOrganiserHeadingTextStyle(
                                           context, isDarkMode)),
                                 ],
                               ),
@@ -198,14 +191,8 @@ class _AboutusState extends State<Aboutus> {
                                   SizedBox(
                                     height: 15,
                                   ),
-                                  Text('Full Name',
+                                  Text('Fintech',
                                       style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text('"A line by the oragniser"',
-                                      style: aboutusOrganiserHeadingTextStyle(
                                           context, isDarkMode)),
                                 ],
                               ),
@@ -222,14 +209,8 @@ class _AboutusState extends State<Aboutus> {
                                   SizedBox(
                                     height: 15,
                                   ),
-                                  Text('Full Name',
+                                  Text('Healthcare',
                                       style: aboutusOrganiserNameTextStyle(
-                                          context, isDarkMode)),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text('"A line by the oragniser"',
-                                      style: aboutusOrganiserHeadingTextStyle(
                                           context, isDarkMode)),
                                 ],
                               ),

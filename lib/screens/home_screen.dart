@@ -1,7 +1,6 @@
 import 'package:connectivity_wrapper/connectivity_wrapper.dart';
 import 'package:equinox_21/constants.dart';
 import 'package:equinox_21/screens/faq.dart';
-import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
 import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
     TimelineScreen(),
-    Team(),
     Container(
       child: Center(
         child: Text(
@@ -29,16 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     ),
-    Aboutus(),
     Faq(),
+    Aboutus(),
   ];
 
   @override
   void initState() {
     super.initState();
     manageTheme();
-    print(secondsNow());
-    print('callllllllllllllllleddddddddddd');
   }
 
   void manageTheme() {
@@ -92,38 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: isDarkMode
                 ? Image.asset(
-                    'images/team_dark.png',
-                    height: screenHeight(context) * 0.035,
-                  )
-                : Image.asset(
-                    'images/team_light.png',
-                    height: screenHeight(context) * 0.035,
-                  ),
-            title: Text(
-              'Team',
-              style: bottomNavBarIconTextStyle(context, isDarkMode),
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: isDarkMode ? darkBackground : lightBackground,
-            icon: isDarkMode
-                ? Image.asset(
-                    'images/equinox_white.png',
-                    height: screenHeight(context) * 0.04,
-                  )
-                : Image.asset(
-                    'images/equinox_black.png',
-                    height: screenHeight(context) * 0.04,
-                  ),
-            title: Text(
-              'Equinox',
-              style: bottomNavBarIconTextStyle(context, isDarkMode),
-            ),
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
-            icon: isDarkMode
-                ? Image.asset(
                     'images/aboutUs_dark.png',
                     height: screenHeight(context) * 0.035,
                   )
@@ -132,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: screenHeight(context) * 0.035,
                   ),
             title: Text(
-              'About Us',
+              'Code of Conduct',
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
@@ -149,6 +113,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             title: Text(
               'FAQs',
+              style: bottomNavBarIconTextStyle(context, isDarkMode),
+            ),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: isDarkMode ? darkBackground : lightBackground,
+            icon: isDarkMode
+                ? Image.asset(
+                    'images/equinox_white.png',
+                    height: screenHeight(context) * 0.04,
+                  )
+                : Image.asset(
+                    'images/equinox_black.png',
+                    height: screenHeight(context) * 0.04,
+                  ),
+            title: Text(
+              'Equinox',
               style: bottomNavBarIconTextStyle(context, isDarkMode),
             ),
           ),
