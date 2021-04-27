@@ -1,5 +1,4 @@
 import 'package:equinox_21/constants.dart';
-import 'package:equinox_21/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -34,7 +33,16 @@ class _HackersGuideState extends State<HackersGuide> {
 
   int _currentIndex = 0;
 
-  List cardList = [Item1(), Item2(), Item3(), Item4(), Item5()];
+  List cardList = [
+    Item1(),
+    Item2(),
+    Item3(),
+    Item4(),
+    Item5(),
+    Item6(),
+    Item7(),
+    Item8()
+  ];
 
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
@@ -216,6 +224,72 @@ class Item5 extends StatelessWidget {
           Expanded(
             child: Image.asset(
               'images/hackers_guide_5.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Item6 extends StatelessWidget {
+  const Item6({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_6.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Item7 extends StatelessWidget {
+  const Item7({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_7.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Item8 extends StatelessWidget {
+  const Item8({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_8.png',
               height: screenHeight(context) * 0.6,
               fit: BoxFit.fill,
             ),

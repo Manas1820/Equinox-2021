@@ -7,7 +7,6 @@ import 'package:equinox_21/widgets/showOffline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:equinox_21/screens/about_us.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 bool isDarkMode = false;
 
