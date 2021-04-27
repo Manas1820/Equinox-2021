@@ -72,7 +72,7 @@ class _FaqState extends State<Faq> {
                             padding: const EdgeInsets.all(8.0),
                             child: ListTile(
                                 title: Text(
-                                    "To keep this hack fun and fair for everyone, we urge our participants to incorporate only freely available or non-copyright resources (code, graphics, sound, etc.) in their projects./nBe sure to go through the MLH Code of Conduct.",
+                                    "To keep this hack fun and fair for everyone, we urge our participants to incorporate only freely available or non-copyright resources (code, graphics, sound, etc.) in their projects.\nBe sure to go through the MLH Code of Conduct.",
                                     style: faqTileSubheadingTextStyle(
                                         context, isDarkMode))),
                           ),
@@ -289,7 +289,7 @@ class _FaqState extends State<Faq> {
                           padding: const EdgeInsets.all(8.0),
                           child: ListTile(
                               title: Text(
-                                  "If you can think it, you can build it! Be it websites, android apps, hardware or electronics, these are just the tip of the iceberg. Express your creativity, ingenuity and determination to explore anything you want. ",
+                                  "We know that you put your heart and soul into your ideas and their implementations, so you will be the sole owners of your projects.",
                                   style: faqTileSubheadingTextStyle(
                                       context, isDarkMode))),
                         ),
@@ -305,7 +305,7 @@ class _FaqState extends State<Faq> {
                   child: ExpansionTile(
                     backgroundColor:
                         isDarkMode ? tileBackgroundDark : tileBackgroundLight,
-                    title: Text("Who will own my ideas and projects?",
+                    title: Text("When do registrations close?",
                         style: faqTileHeadingTextStyle(context, isDarkMode)),
                     children: [
                       Center(
@@ -313,7 +313,7 @@ class _FaqState extends State<Faq> {
                           padding: const EdgeInsets.all(8.0),
                           child: ListTile(
                               title: Text(
-                                  "We know that you put your heart and soul into your ideas and their implementations, so you will be the sole owners of your projects.",
+                                  "You have till 25th March, 2021, 23:59 IST to register yourself for the blast off to the best 36 hours of hacking you will ever have.",
                                   style: faqTileSubheadingTextStyle(
                                       context, isDarkMode))),
                         ),
@@ -337,7 +337,7 @@ class _FaqState extends State<Faq> {
                           padding: const EdgeInsets.all(8.0),
                           child: ListTile(
                               title: Text(
-                                  "You have till 30th March, 2021, 23:59 IST to register yourself for the blast off to the best 36 hours of hacking you will ever have.",
+                                  "Anywhere on the face of the earth that you find comfortable, with ample charging ports, while making sure you follow social distancing norms.",
                                   style: faqTileSubheadingTextStyle(
                                       context, isDarkMode))),
                         ),

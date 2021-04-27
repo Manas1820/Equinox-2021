@@ -34,7 +34,6 @@ class _EmailSigninPageState extends State<EmailSigninPage> {
 
   @override
   Widget build(BuildContext context) {
-    const color = const Color(0xff0E1C36);
     var color1 = const Color(0xffFBD00D);
     return Scaffold(
       resizeToAvoidBottomInset: true,
