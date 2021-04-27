@@ -33,7 +33,7 @@ class _HackersGuideState extends State<HackersGuide> {
 
   int _currentIndex = 0;
 
-  List cardList = [Item1(), Item2(), Item3(), Item4()];
+  List cardList = [Item1(), Item2(), Item3(), Item4(), Item5()];
 
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];
@@ -84,7 +84,7 @@ class _HackersGuideState extends State<HackersGuide> {
                       height: screenHeight(context) * 0.7,
                       width: screenWidth(context),
                       child: Card(
-                        color: Colors.blueAccent,
+                        color: Colors.transparent,
                         child: card,
                       ),
                     );
@@ -100,8 +100,7 @@ class _HackersGuideState extends State<HackersGuide> {
                     margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color:
-                          _currentIndex == index ? Colors.blueAccent : Colors.grey,
+                      color: _currentIndex == index ? Colors.yellow : Colors.grey,
                     ),
                   );
                 }),
@@ -120,26 +119,15 @@ class Item1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [
-              0.3,
-              1
-            ],
-            colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
-            ]),
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            'images/testing.png',
-            height: screenHeight(context) * 0.6,
-            fit: BoxFit.cover,
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_1.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
           )
         ],
       ),
@@ -152,32 +140,20 @@ class Item2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [
-              0.3,
-              1
-            ],
-            colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
-            ]),
-      ),
+    return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            'images/testing.png',
-            height: screenHeight(context) * 0.6,
-            fit: BoxFit.cover,
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_2.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
           )
         ],
       ),
-    ));
+    );
   }
 }
 
@@ -187,26 +163,15 @@ class Item3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [
-              0.3,
-              1
-            ],
-            colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
-            ]),
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            'images/testing.png',
-            height: screenHeight(context) * 0.6,
-            fit: BoxFit.cover,
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_3.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
           )
         ],
       ),
@@ -220,26 +185,37 @@ class Item4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            stops: [
-              0.3,
-              1
-            ],
-            colors: [
-              Color(0xffff4000),
-              Color(0xffffcc66),
-            ]),
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            'images/testing.png',
-            height: screenHeight(context) * 0.6,
-            fit: BoxFit.cover,
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_4.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Item5 extends StatelessWidget {
+  const Item5({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: Image.asset(
+              'images/hackers_guide_5.png',
+              height: screenHeight(context) * 0.6,
+              fit: BoxFit.fill,
+            ),
           )
         ],
       ),
