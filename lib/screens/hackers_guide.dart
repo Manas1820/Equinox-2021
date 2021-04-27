@@ -1,4 +1,5 @@
 import 'package:equinox_21/constants.dart';
+import 'package:equinox_21/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -100,7 +101,9 @@ class _HackersGuideState extends State<HackersGuide> {
                     margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: _currentIndex == index ? Colors.yellow : Colors.grey,
+                      color: _currentIndex == index
+                          ? (isDarkMode ? Colors.yellow : Color(0xFF0E1C36))
+                          : Colors.grey,
                     ),
                   );
                 }),
