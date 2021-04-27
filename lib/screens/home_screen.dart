@@ -19,8 +19,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
-    HackersGuide(), TimelineScreen(),
-    //HackersGuide(),
+    TimelineScreen(),
+    HackersGuide(),
     Faq(),
     Aboutus(),
   ];
