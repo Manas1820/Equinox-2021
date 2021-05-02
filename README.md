@@ -9,7 +9,7 @@
 > A Flutter app to make hacker's life simpler in __Equinox-2021__
 
 ### 🏠 [Homepage](https://www.equinoxhack.in/)
-
+### 🏠 [Playstore](https://play.google.com/store/apps/details?id=com.apoorvsingh2000.equinox_21)
 ### ✨ [Prototype](https://www.figma.com/file/QNIFwJ902eYJUMx5fgtCUL/Equinox-app?node-id=0%3A1)
 
 ## 📥 Install
